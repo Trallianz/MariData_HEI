@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Map/>}/>
-        <Route path='/comparision' element={<Comparison/>}/>
+        <Route path='/comparison' element={<Comparison/>}/>
         <Route path='/breakdown' element={<Breakdown/>}/>
       </Routes>
     </BrowserRouter>
