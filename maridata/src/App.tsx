@@ -1,26 +1,29 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
+import Map from "./sites/Map"
+import Comparison from "./sites/Comparison";
+import Breakdown from "./sites/Breakdown";
+
+
+const Test = () => <p>test</p>;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Map/>}/>
+        <Route path='/comparision' element={<Comparison/>}/>
+        <Route path='/breakdown' element={<Breakdown/>}/>
+      </Routes>
+    </BrowserRouter>
+    
   );
 }
+
+
 
 export default App;
