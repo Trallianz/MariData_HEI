@@ -8,6 +8,7 @@ const navigate = useNavigate();
 
   return (
     <div>
+      <p>test</p>
       <Link to="/breakdown">breakdown</Link>
       <Link to="/comparison">comparison</Link>
       <button onClick={() => navigate("/breakdown")}>breakdown</button>
