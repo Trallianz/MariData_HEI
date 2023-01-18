@@ -1,0 +1,50 @@
+.routen_panel{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-gray-0);
+}
+
+.routen_panel_div1{
+    display: flex;
+    flex-direction: row;
+}
+
+.routen_panel_route_date_and_color{
+    display: flex;
+    flex-direction: column;
+}
+
+.routen_panel_div2 > *{
+    display: flex;
+    flex-direction: row;
+}
+
+.routen_panel_div2_1{
+    display: flex;
+    flex-direction: row;
+}
+
+.routen_panel_div2_2{
+    display: flex;
+    flex-direction: row;
+}
+
+.routen_panel_eco_rating{
+    display: flex;
+    flex-direction: column;
+}
+
+.routen_panel_eco_rating_value{
+    display: flex;
+    flex-direction: row;
+}
+
+.routen_panel_time{
+    display: flex;
+    flex-direction: column;
+}
+
+.routen_panel_eco_rating_value{
+    display: flex;
+    flex-direction: row;
+}
