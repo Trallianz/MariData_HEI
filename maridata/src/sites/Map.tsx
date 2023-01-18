@@ -9,7 +9,7 @@ const navigate = useNavigate();
   return (
     <div>
       <Link to="/breakdown">breakdown</Link>
-      <Link to="/comparison">comparision</Link>
+      <Link to="/comparison">comparison</Link>
       <button onClick={() => navigate("/breakdown")}>breakdown</button>
       Map
     </div>

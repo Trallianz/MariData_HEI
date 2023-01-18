@@ -1,8 +1,12 @@
 import React from 'react'
+import Topbar from '../components/Topbar'
 
 const Comparison = () => {
   return (
-    <div>Comparison</div>
+    <div>
+      <Topbar name={"Detailed Comparison"}/>
+      <div>bla</div>
+    </div>
   )
 }
 
