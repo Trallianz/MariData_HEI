@@ -11,6 +11,6 @@ export interface routen_props{
     co2_factor: number;
     distance: number;
     cargo_carrying_capacity: number;
-
+    route_color: string;
 }
 

@@ -14,7 +14,7 @@
     flex-direction: column;
 }
 
-.routen_panel_div2 > *{
+.routen_panel_div2{
     display: flex;
     flex-direction: row;
 }

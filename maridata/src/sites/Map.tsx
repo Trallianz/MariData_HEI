@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, Navigate, useNavigate} from "react-router-dom";
 import RoutenPanel from "./../components/RoutePanel";
-import RoutenPanelList from "./../components/RoutenPanleList";
+import RoutenPanelList from "../components/RoutenPanelList";
 
 interface route_list{
   //TODO find types

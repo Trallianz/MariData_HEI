@@ -1,11 +1,23 @@
 import { time } from 'console';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './RoutenPanel.css';
 import {routen_props} from "./../components/Route";
 import ecoscore_logo from "./../icons/Leaf.svg";
 import time_logo from "./../icons/Time.svg";
+import arrow_up_green from "./../icons/arrow_up_green.svg";
+import arrow_down_red from "./../icons/arrow_down_red.svg";
+import arrow_grey from "./../icons/arrow_grey.svg";
+import eye_closed from "./../icons/eye_closed.svg";
+import eye_open from "./../icons/eye_open.svg";
+import line_green from "./../icons/line_green.svg";
+import line_black from "./../icons/line_black.svg";
+import line_purpel from "./../icons/line_purpel.svg";
+import line_blue from "./../icons/line_blue.svg";
+import { bool } from 'prop-types';
+import RoutenPanelList from "./RoutenPanelList";
 
 const RoutePanel = (props: routen_props) => {
+
 
     //split time in hours and minutes
     const time_array = props.time_driven.split(",")
@@ -16,15 +28,45 @@ const RoutePanel = (props: routen_props) => {
     const anchor_hours = time_array_anchor[0];
     const anchor_minutes = time_array_anchor[1];
 
+    //handle what eye (closed, open) is seen
+    const [isOpen, setIsOpen] = useState(true);
+
+    const handleEyeAction = () => {
+        setIsOpen(!isOpen);
+    }
+
+    
+  
+    // create hook for route color
+    const [color, setColor] = useState("");
+
+    //determine the correct route color
+    const determine_route_color = () => {
+
+        //create [key, value] pairs for the color name and icon
+        const lines = {"black": line_black, "green": line_green, "blue": line_blue, "purpel": line_purpel}
+
+        //loop the pairs and when the prop route color equals the key color then set the hook to the value (the icon object)
+        for (const [key, value] of Object.entries(lines)) {
+            if(key === props.route_color) setColor(value);
+            console.log(key, value);
+          }
+
+    }
+
+    useEffect(() => { 
+        determine_route_color();
+      });
+
   return (
     <div className='routen_panel'>
         <div className='routen_panel_div1'>
             <div className='routen_panel_route_date_and_color'>
                 <p>Route from {props.date}</p>
-                <p>-------------</p>
+                <img src={color} alt="open eye or closed eye, deping on if the route is visible" />
             </div>
             <div className='routen_panel_hide'>
-                <p> oo </p>
+            <img src={isOpen? eye_open : eye_closed} alt="open eye or closed eye, deping on if the route is visible" onClick={() => handleEyeAction()} />
             </div>
         </div>
         <div className='routen_panel_div2'>
@@ -54,7 +96,7 @@ const RoutePanel = (props: routen_props) => {
                 </div>
             </div>
             <div className='routen_panel_arrow'>
-                <p>ARROW</p>
+                <img src={arrow_grey} alt="a arrow navigating the uzser to the detailed comparison" />
             </div>
         </div>    
     </div>
