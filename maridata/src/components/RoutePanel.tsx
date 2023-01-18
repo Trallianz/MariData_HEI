@@ -2,7 +2,8 @@ import { time } from 'console';
 import React from 'react';
 import './RoutenPanel.css';
 import {routen_props} from "./../components/Route";
-
+import ecoscore_logo from "./../icons/Leaf.svg";
+import time_logo from "./../icons/Time.svg";
 
 const RoutePanel = (props: routen_props) => {
 
@@ -29,7 +30,7 @@ const RoutePanel = (props: routen_props) => {
         <div className='routen_panel_div2'>
             <div className='routen_panel_div2_1'>
                 <div className='routen_panel_eco_image'>
-                    <p>Blatt</p>
+                    <img src={ecoscore_logo} alt="Leaf symbolizing the eco score" />
                 </div>
                 <div className='routen_panel_eco_rating'>
                     <p>Eco Rating:</p>
@@ -41,7 +42,7 @@ const RoutePanel = (props: routen_props) => {
             </div>
             <div className='routen_panel_div2_2'>
                 <div className='routen_panel_time_image'>
-                    <p>Uhr</p>
+                <img src={time_logo} alt="clock symbolizing the time of the ship" />
                 </div>
                 <div className='routen_panel_time'>
                     <p>Time:</p>
