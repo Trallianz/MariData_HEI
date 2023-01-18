@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     background-color: var(--color-gray-0);
+    margin: 2em 1em;
+    padding: 1em;
 }
 
 .routen_panel_div1{
@@ -13,6 +15,12 @@
     display: flex;
     flex-direction: column;
 }
+
+.routen_panel_div2_grouped{
+    display: flex;
+    flex-direction: column;
+}
+
 
 .routen_panel_div2{
     display: flex;

@@ -28,14 +28,12 @@ const RoutePanel = (props: routen_props) => {
     const anchor_hours = time_array_anchor[0];
     const anchor_minutes = time_array_anchor[1];
 
-    //handle what eye (closed, open) is seen
+    //handle which eye (closed, open) is seen
     const [isOpen, setIsOpen] = useState(true);
 
     const handleEyeAction = () => {
         setIsOpen(!isOpen);
     }
-
-    
   
     // create hook for route color
     const [color, setColor] = useState("");
@@ -49,9 +47,7 @@ const RoutePanel = (props: routen_props) => {
         //loop the pairs and when the prop route color equals the key color then set the hook to the value (the icon object)
         for (const [key, value] of Object.entries(lines)) {
             if(key === props.route_color) setColor(value);
-            console.log(key, value);
           }
-
     }
 
     useEffect(() => { 
@@ -70,28 +66,30 @@ const RoutePanel = (props: routen_props) => {
             </div>
         </div>
         <div className='routen_panel_div2'>
-            <div className='routen_panel_div2_1'>
-                <div className='routen_panel_eco_image'>
-                    <img src={ecoscore_logo} alt="Leaf symbolizing the eco score" />
-                </div>
-                <div className='routen_panel_eco_rating'>
-                    <p>Eco Rating:</p>
-                    <div className='routen_panel_eco_rating_value'>
-                        <p>{props.eco_rating}</p>
-                        <p>+1,5</p>
+            <div className='routen_panel_div2_grouped'>
+                <div className='routen_panel_div2_1'>
+                    <div className='routen_panel_eco_image'>
+                        <img src={ecoscore_logo} alt="Leaf symbolizing the eco score" />
+                    </div>
+                    <div className='routen_panel_eco_rating'>
+                        <p>Eco Rating:</p>
+                        <div className='routen_panel_eco_rating_value'>
+                            <p>{props.eco_rating}</p>
+                            <p>+1,5</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className='routen_panel_div2_2'>
-                <div className='routen_panel_time_image'>
-                <img src={time_logo} alt="clock symbolizing the time of the ship" />
-                </div>
-                <div className='routen_panel_time'>
-                    <p>Time:</p>
-                    <div className='routen_panel_eco_rating_value'>
-                        <p>{parseInt(time_driven_hours) + parseInt(anchor_hours)}h </p>
-                        <p>{parseInt(time_driven_minutes) + parseInt(anchor_minutes)}min </p>
-                        <p>+38min</p>
+                <div className='routen_panel_div2_2'>
+                    <div className='routen_panel_time_image'>
+                    <img src={time_logo} alt="clock symbolizing the time of the ship" />
+                    </div>
+                    <div className='routen_panel_time'>
+                        <p>Time:</p>
+                        <div className='routen_panel_eco_rating_value'>
+                            <p>{parseInt(time_driven_hours) + parseInt(anchor_hours)}h </p>
+                            <p>{parseInt(time_driven_minutes) + parseInt(anchor_minutes)}min </p>
+                            <p>+38min</p>
+                        </div>
                     </div>
                 </div>
             </div>
