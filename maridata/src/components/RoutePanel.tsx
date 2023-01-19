@@ -31,18 +31,12 @@ const RoutePanel = (props: routen_props) => {
     //handle which eye (closed, open) is seen
     const [isOpen, setIsOpen] = useState(true);
 
-    //handle which eye (closed, open) is seen
-    const [routeData, setRouteData] = useState(true);
-
-    const [isClicked, setIsClicked] = useState(false);
-
-   
-    const navigate = useNavigate();
-     
-
     const handleEyeAction = () => {
         setIsOpen(!isOpen);
     }
+
+    //passes the route data (props) to the breakdown and detailed comparison site
+    const navigate = useNavigate();
 
     const handleClickAction = () => {
         
@@ -50,6 +44,12 @@ const RoutePanel = (props: routen_props) => {
         
     }
   
+    const handleClickAction2 = () => {
+        
+        navigate("/comparison", {state: {props}});
+        
+    }
+
     // create hook for route color
     const [color, setColor] = useState("");
 
@@ -110,7 +110,7 @@ const RoutePanel = (props: routen_props) => {
                 </div>
             </div>
             <div className='routen_panel_arrow'>
-                <img src={arrow_grey} alt="a arrow navigating the uzser to the detailed comparison" onClick={() => handleClickAction()} />
+                <img src={arrow_grey} alt="a arrow navigating the uzser to the detailed comparison" onClick={() => handleClickAction2()} />
             </div>
         </div>    
     </div>
