@@ -16,12 +16,12 @@ function App() {
   <div className=' min-h-screen min-w-screen flex items-center justify-center'>
     <div className='h-[1040px] w-[1382px] border-8 border-black m-20 rounded-xl'>
       <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Map/>}/>
-        <Route path='/comparison' element={<Comparison/>}/>
-        <Route path='/breakdown' element={<Breakdown/>}/>
-      </Routes>
-    </BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Map/>}/>
+          <Route path='/comparison' element={<Comparison/>}/>
+          <Route path='/breakdown' element={<Breakdown/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   </div>
     

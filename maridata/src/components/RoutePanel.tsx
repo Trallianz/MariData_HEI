@@ -50,6 +50,7 @@ const RoutePanel = (props: routen_props) => {
           }
     }
 
+    //after site reload, determine the route color
     useEffect(() => { 
         determine_route_color();
       });

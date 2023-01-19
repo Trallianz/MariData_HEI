@@ -6,6 +6,7 @@ import { routen_props } from "./Route";
 
 const RoutenPanleList = () => {
 
+    //create Routes to simulate data
     const route_list = [
         <RoutenPanel date='28.02.2022' eco_rating={6.2} time_driven='11,20' time_anchor='1,10' speed={6} ship_type='x' fuel_consumption={1} co2_factor={1} distance={1} cargo_carrying_capacity={1} route_color='black' />,
         <RoutenPanel date='06.04.2021' eco_rating={7.0} time_driven='12,05' time_anchor='0,35' speed={1} ship_type='x' fuel_consumption={1} co2_factor={1} distance={1} cargo_carrying_capacity={1} route_color='green'/>,
