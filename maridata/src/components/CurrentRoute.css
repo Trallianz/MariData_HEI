@@ -1,0 +1,22 @@
+.current_route{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-gray-0);
+    margin: 2em 1em;
+    padding: 1em;
+}
+
+.current_route_name_and_line{
+    display: flex;
+    flex-direction: column;
+}
+
+.current_route_eco_and_time{
+    display: flex;
+    flex-direction: row;
+}
+
+.current_route_eco_and_time > *{
+    display: flex;
+    flex-direction: row;
+}

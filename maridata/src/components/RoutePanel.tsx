@@ -15,9 +15,9 @@ import line_purpel from "./../icons/line_purpel.svg";
 import line_blue from "./../icons/line_blue.svg";
 import { bool } from 'prop-types';
 import RoutenPanelList from "./RoutenPanelList";
+import { Link, Navigate, useNavigate} from "react-router-dom";
 
 const RoutePanel = (props: routen_props) => {
-
 
     //split time in hours and minutes
     const time_array = props.time_driven.split(",")
@@ -31,8 +31,23 @@ const RoutePanel = (props: routen_props) => {
     //handle which eye (closed, open) is seen
     const [isOpen, setIsOpen] = useState(true);
 
+    //handle which eye (closed, open) is seen
+    const [routeData, setRouteData] = useState(true);
+
+    const [isClicked, setIsClicked] = useState(false);
+
+   
+    const navigate = useNavigate();
+     
+
     const handleEyeAction = () => {
         setIsOpen(!isOpen);
+    }
+
+    const handleClickAction = () => {
+        
+        navigate("/breakdown", {state: {props}});
+        
     }
   
     // create hook for route color
@@ -95,7 +110,7 @@ const RoutePanel = (props: routen_props) => {
                 </div>
             </div>
             <div className='routen_panel_arrow'>
-                <img src={arrow_grey} alt="a arrow navigating the uzser to the detailed comparison" />
+                <img src={arrow_grey} alt="a arrow navigating the uzser to the detailed comparison" onClick={() => handleClickAction()} />
             </div>
         </div>    
     </div>

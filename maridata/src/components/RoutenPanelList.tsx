@@ -1,10 +1,11 @@
 import React from 'react'
 import RoutenPanel from "./RoutePanel";
+import CurrentRoute from './CurrentRoute';
 import { routen_props } from "./Route";
 
 
 
-const RoutenPanleList = () => {
+const RoutenPanelList = () => {
 
     //create Routes to simulate data
     const route_list = [
@@ -15,18 +16,19 @@ const RoutenPanleList = () => {
 
     //for each route in the route map a div containing the route will be created
     const listItems = route_list.map((route) =>
-        <div>{route}</div>  
+        <div>{route}</div> 
     );
 
     return (
         <div>
             <div>
-           
+                <CurrentRoute date='28.02.2022' eco_rating={6.2} time_driven='11,20' time_anchor='1,10' speed={6} ship_type='x' fuel_consumption={1} co2_factor={1} distance={1} cargo_carrying_capacity={1} route_color='black'/>
+            </div>
+            <div>
                 {listItems}
-
             </div>
         </div>
     )
 }
 
-export default RoutenPanleList
+export default RoutenPanelList

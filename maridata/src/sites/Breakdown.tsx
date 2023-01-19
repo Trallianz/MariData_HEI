@@ -1,12 +1,16 @@
 import React from 'react'
 import Radar from '../components/Radar'
 import Topbar from '../components/Topbar'
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import PickedRoutes from '../components/PickedRoutes';
+import RoutenPanelList from './../components/RoutenPanelList'
 
 const Breakdown = () => {
 
   const navigate = useNavigate();
+
+  const {state} = useLocation();
+  const {props} = state;
 
   return (
     <div className='h-full w-full bg-gray1 text-text0'>
@@ -24,6 +28,9 @@ const Breakdown = () => {
           <PickedRoutes date={"01.02.03"} eco={9.9} time={"13h 37min"} color={"#fff"} currentRoute={true}/>
           <div>other Routes</div>
         </div>
+      </div>
+      <div>
+        {props.eco_rating}
       </div>
     </div>
   )
