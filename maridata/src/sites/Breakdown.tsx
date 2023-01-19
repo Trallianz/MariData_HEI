@@ -1,16 +1,16 @@
-import React from 'react'
 import Radar from '../components/Radar'
 import Topbar from '../components/Topbar'
+import EcoRatingTableItem from '../components/EcoRatingTableItem';
 import { useLocation, useNavigate } from "react-router-dom";
-import PickedRoutes from '../components/PickedRoutes';
-import RoutenPanelList from './../components/RoutenPanelList'
+import Leaf from "./../icons/Leaf.svg"
 
 const Breakdown = () => {
 
   const navigate = useNavigate();
 
-  const {state} = useLocation();
-  const {props} = state;
+  const { state } = useLocation();
+  const { props } = state;
+
 
   return (
     <div className='h-full w-full bg-gray1 text-text0'>
@@ -24,9 +24,24 @@ const Breakdown = () => {
           </button >
           <Radar />
         </div>
-        <div>
-          <PickedRoutes date={"01.02.03"} eco={9.9} time={"13h 37min"} color={"#fff"} currentRoute={true}/>
-          <div>other Routes</div>
+        <div className='bg-gray0 w-[400px] p-3 rounded-lg'>
+          <div className='flex'>
+            <div>
+              <div className='font-bold text-xl'>Current</div>
+              <div>CurrentFarbe</div>
+            </div>
+            <div>
+              <div className='font-bold text-xl'>Suggestion</div>
+              <div>SuggestionFarbe</div>
+            </div>
+          </div>
+          <div className='flex flex-col items-center'>
+            <EcoRatingTableItem icon={Leaf} attribute="Eco-Rating" cPoints={props.eco_rating} sPoints={props.eco_rating} />
+            <EcoRatingTableItem icon={Leaf} attribute="Fuel Consumption" cPoints={props.fuel_consumption} sPoints={props.fuel_consumption} />
+            <EcoRatingTableItem icon={Leaf} attribute="CO2 Factor" cPoints={props.co2_factor} sPoints={props.co2_factor} />
+            <EcoRatingTableItem icon={Leaf} attribute="Distance" cPoints={props.distance} sPoints={props.distance} />
+            <EcoRatingTableItem icon={Leaf} attribute="Capacity" cPoints={props.capacity} sPoints={props.capacity} />
+          </div>
         </div>
       </div>
       <div>

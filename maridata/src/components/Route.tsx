@@ -10,7 +10,7 @@ export interface routen_props{
     fuel_consumption: number;
     co2_factor: number;
     distance: number;
-    cargo_carrying_capacity: number;
+    capacity: number;
     route_color: string;
 }
 
