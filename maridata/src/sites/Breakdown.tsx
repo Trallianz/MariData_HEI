@@ -1,5 +1,6 @@
 import Radar from '../components/Radar'
 import Topbar from '../components/Topbar'
+import StandardButton from '../components/StandardButton';
 import EcoRatingTableItem from '../components/EcoRatingTableItem';
 import { useLocation, useNavigate } from "react-router-dom";
 import Leaf from "./../icons/Leaf.svg"
@@ -15,7 +16,7 @@ const Breakdown = () => {
   return (
     <div className='h-full w-full bg-gray1 text-text0'>
       <Topbar name={"Breakdown"} />
-      <div className='flex justify-between p-5'>
+      <div className='h-[944px] flex justify-between p-8'>
         <div>
           <button onClick={() => navigate("/comparison")}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-[50px]">
@@ -24,24 +25,27 @@ const Breakdown = () => {
           </button >
           <Radar />
         </div>
-        <div className='bg-gray0 w-[400px] p-3 rounded-lg'>
-          <div className='flex'>
-            <div>
-              <div className='font-bold text-xl'>Current</div>
-              <div>CurrentFarbe</div>
+        <div className='h-full flex flex-col justify-between items-end'>
+          <div className='bg-gray0 w-[500px] p-3 rounded-lg'>
+            <div className='flex'>
+              <div>
+                <div className='font-bold text-xl'>Current</div>
+                <div>CurrentFarbe</div>
+              </div>
+              <div>
+                <div className='font-bold text-xl'>Suggestion</div>
+                <div>SuggestionFarbe</div>
+              </div>
             </div>
-            <div>
-              <div className='font-bold text-xl'>Suggestion</div>
-              <div>SuggestionFarbe</div>
+            <div className='flex flex-col items-center'>
+              <EcoRatingTableItem icon={Leaf} attribute="Eco-Rating" cPoints={props.eco_rating} sPoints={props.eco_rating} />
+              <EcoRatingTableItem icon={Leaf} attribute="Fuel Consumption" cPoints={props.fuel_consumption} sPoints={props.fuel_consumption} />
+              <EcoRatingTableItem icon={Leaf} attribute="CO2 Factor" cPoints={props.co2_factor} sPoints={props.co2_factor} />
+              <EcoRatingTableItem icon={Leaf} attribute="Distance" cPoints={props.distance} sPoints={props.distance} />
+              <EcoRatingTableItem icon={Leaf} attribute="Capacity" cPoints={props.capacity} sPoints={props.capacity} />
             </div>
           </div>
-          <div className='flex flex-col items-center'>
-            <EcoRatingTableItem icon={Leaf} attribute="Eco-Rating" cPoints={props.eco_rating} sPoints={props.eco_rating} />
-            <EcoRatingTableItem icon={Leaf} attribute="Fuel Consumption" cPoints={props.fuel_consumption} sPoints={props.fuel_consumption} />
-            <EcoRatingTableItem icon={Leaf} attribute="CO2 Factor" cPoints={props.co2_factor} sPoints={props.co2_factor} />
-            <EcoRatingTableItem icon={Leaf} attribute="Distance" cPoints={props.distance} sPoints={props.distance} />
-            <EcoRatingTableItem icon={Leaf} attribute="Capacity" cPoints={props.capacity} sPoints={props.capacity} />
-          </div>
+          <StandardButton label={"How is the Eco-Rating calculated?"} />
         </div>
       </div>
       <div>

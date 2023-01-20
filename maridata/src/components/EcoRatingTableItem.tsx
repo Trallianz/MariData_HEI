@@ -24,13 +24,13 @@ const EcoRatingTable = ({ icon, attribute, cPoints, sPoints }: tableElements) =>
 
     return (
         <div className='flex w-full items-center justify-between p-3 m-1 rounded-lg bg-gray1'>
-            <div>
+            <div className="w-[131px]">
                 <img src={icon} />
                 {attribute}
             </div>
-            <div className='font-bold text-3xl'>{cPoints}</div>
-            <div className='font-bold text-3xl'>{sPoints}</div>
-            <div>{getDifference(cPoints, sPoints)}</div>
+            <div className='flex w-[60px] justify-end font-bold text-3xl'>{Math.round(cPoints).toFixed(1)}</div>
+            <div className='flex w-[60px] justify-end font-bold text-3xl'>{Math.round(sPoints).toFixed(1)}</div>
+            <div className='flex w-[42px] justify-end'>{getDifference(cPoints, sPoints)}</div>
         </div>
     )
 }
