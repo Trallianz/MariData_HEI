@@ -78,7 +78,7 @@ const RoutePanel = (props: routen_props) => {
                 <img src={color} alt="open eye or closed eye, deping on if the route is visible" />
             </div>
             <div className='routen_panel_hide'>
-            <img src={isOpen? eye_open : eye_closed} alt="open eye or closed eye, deping on if the route is visible" onClick={() => handleEyeAction()} />
+                <img src={isOpen? eye_open : eye_closed} alt="open eye or closed eye, deping on if the route is visible" onClick={() => handleEyeAction()} />
             </div>
         </div>
         <div className='routen_panel_div2'>

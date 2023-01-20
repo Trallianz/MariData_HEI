@@ -1,0 +1,18 @@
+.route_panel_list_routes{
+    width: 500px;
+    height: 800px;
+    background-color: var(--color-gray-0);
+    margin: 1em 1em;
+    padding-top: 2em;
+    
+}
+
+.current_route_div{
+    
+}
+
+.alternative_routes{
+    height: 620px;
+    width: 500px;
+    overflow-y: scroll;
+}

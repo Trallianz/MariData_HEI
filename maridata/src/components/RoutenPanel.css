@@ -1,9 +1,12 @@
 .routen_panel{
+    width: 450px;
+    height: 160px;
     display: flex;
     flex-direction: column;
-    background-color: var(--color-gray-0);
+    background-color: var(--color-gray-1);
     margin: 2em 1em;
     padding: 1em;
+    border-radius: 10px;
 }
 
 .routen_panel_div1{
@@ -14,6 +17,19 @@
 .routen_panel_route_date_and_color{
     display: flex;
     flex-direction: column;
+
+}
+
+
+.routen_panel_route_date_and_color > p{
+    padding-bottom: 10px;
+    
+}
+
+.routen_panel_hide > img{
+    position: relative;
+    left: 130px
+    
 }
 
 .routen_panel_div2_grouped{

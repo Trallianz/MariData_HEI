@@ -21,7 +21,7 @@ const navigate = useNavigate();
       <Link to="/comparison">comparison</Link>
       <button onClick={() => navigate("/breakdown")}>breakdown</button>
       Map
-      <div>
+      <div className='map_panel'>
         <RoutenPanelList/>
       </div>
     </div>
