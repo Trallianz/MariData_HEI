@@ -7,65 +7,62 @@ Link zum Radar:
 https://www.npmjs.com/package/react-svg-radar-chart
 */
 
-class Radar extends React.Component {
+class Radar extends React.Component{ 
+ 
   render() {
- 	 const data = [
+
+    const captions = {
+      ecoRating: 'Eco-Rating',
+      fuelConsumption: 'Fuel Consumption',
+      co2Factor: 'CO2 Factor',
+      distance: 'Distance',
+      capacity: 'Capacity'
+    }
+
+    const data = [
       {
         data: {
-          battery: 0.7,
-          design: .8,
-          useful: 0.9,
-          speed: 0.67,
-          weight: 0.8
+          ecoRating: 1,
+          fuelConsumption: .8,
+          co2Factor: 0.9,
+          distance: 0.67,
+          capacity: 0.8
         },
-        meta: { color: 'blue' }
+        meta: { color: '#58FCEC' }
       },
       {
         data: {
-          battery: 0.6,
-          design: .85,
-          useful: 0.5,
-          speed: 0.6,
-          weight: 0.7
+          ecoRating: 0.5,
+          fuelConsumption: .5,
+          co2Factor: 0.9,
+          distance: 0.67,
+          capacity: 0.5
         },
-        meta: { color: 'red' }
-      }
-    ];
+        meta: { color: '#0000EC' }
+      },
+    ]
 
-	const captions = {
-      // columns
-      battery: 'Battery Capacity',
-      design: 'Design',
-      useful: 'Usefulness',
-      speed: 'Speed',
-      weight: 'Weight'
-    };
+    const options = {
+      scales: 10,
+      scaleProps: () => ({ className: 'fill-gray2 stroke-gray1', fill: 'none' }),
+      captionMargin: 60,
+      captionProps: () => ({
+        className: 'fill-text0',
+        textAnchor: 'middle',
+        fontSize: 20,
+        fontFamily: 'sans-serif'
+      }),
+      wrapCaptionAt: 16,
+    }
+
 
     return (
-          <RadarChart
-            captions={{
-              // columns
-              battery: 'Battery Capacity',
-              design: 'Design',
-              useful: 'Usefulness',
-              speed: 'Speed',
-              weight: 'Weight'
-            }}
-            data={[
-              // data
-              {
-                data: {
-                  battery: 0.7,
-                  design: .8,
-                  useful: 0.9,
-                  speed: 0.67,
-                  weight: 0.8
-                },
-                meta: { color: '#58FCEC' }
-              },
-            ]}
-            size={400}
-          />
+      <RadarChart
+        captions={captions}
+        data={data}
+        size={700}
+        options={options}
+      />
     );
   }
 }
