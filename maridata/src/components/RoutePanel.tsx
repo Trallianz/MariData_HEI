@@ -90,24 +90,27 @@ const RoutePanel = (props: routen_props) => {
                     <div className='routen_panel_eco_rating'>
                         <p>Eco Rating:</p>
                         <div className='routen_panel_eco_rating_value'>
-                            <p>{props.eco_rating}</p>
-                            <p>+1,5</p>
+                            <p className='eco_rating'>{props.eco_rating}</p>
+                            <p className='eco_difference'>+1,5</p>
                         </div>
                     </div>
                 </div>
                 <div className='routen_panel_div2_2'>
                     <div className='routen_panel_time_image'>
-                    <img src={time_logo} alt="clock symbolizing the time of the ship" />
+                        <img src={time_logo} alt="clock symbolizing the time of the ship"  id='time_pic'/>
                     </div>
                     <div className='routen_panel_time'>
                         <p>Time:</p>
                         <div className='routen_panel_eco_rating_value'>
-                            <p>{parseInt(time_driven_hours) + parseInt(anchor_hours)}h </p>
-                            <p>{parseInt(time_driven_minutes) + parseInt(anchor_minutes)}min </p>
-                            <p>+38min</p>
+                            <p className='time'>{parseInt(time_driven_hours) + parseInt(anchor_hours)}h</p>
+                            <p className='time'>{parseInt(time_driven_minutes) + parseInt(anchor_minutes)}min</p>
+                            <p className='time_difference'>+38min</p>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className='routen_divider'>
+
             </div>
             <div className='routen_panel_arrow'>
                 <img src={arrow_grey} alt="a arrow navigating the uzser to the detailed comparison" onClick={() => handleClickAction2()} />
