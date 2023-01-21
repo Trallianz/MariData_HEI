@@ -1,3 +1,28 @@
+
+
+.map{
+    background-color: var(--color-gray-3);
+}
+
+#land_top{
+    position: relative;
+    top: 0px;
+    left: 548px;
+}
+
+#land_botton{
+    position: relative;
+    left: 610px;
+    top: 739px;
+}
+
+#line_map_black{
+    position: relative;
+    left: 820px;
+    top: -192px;
+}
+
 .map_panel{
-    background-color: var(--color-gray-0);
+    position: relative;
+    top: -920px;
 }

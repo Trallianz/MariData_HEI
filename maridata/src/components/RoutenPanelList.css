@@ -1,9 +1,10 @@
 .route_panel_list_routes{
     width: 500px;
-    height: 800px;
+    height: 850px;
     background-color: var(--color-gray-0);
     margin: 1em 1em;
     padding-top: 2em;
+    border-radius: 15px;
     
 }
 

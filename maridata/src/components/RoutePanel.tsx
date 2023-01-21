@@ -17,7 +17,12 @@ import { bool } from 'prop-types';
 import RoutenPanelList from "./RoutenPanelList";
 import { Link, Navigate, useNavigate} from "react-router-dom";
 
-const RoutePanel = (props: routen_props) => {
+interface route_colors{
+    colorBool: any
+    setColorBool: any
+}
+
+const RoutePanel = (props: (routen_props & route_colors)) => {
 
     //split time in hours and minutes
     const time_array = props.time_driven.split(",")
@@ -31,8 +36,24 @@ const RoutePanel = (props: routen_props) => {
     //handle which eye (closed, open) is seen
     const [isOpen, setIsOpen] = useState(true);
 
+    // function that is called when clicked on the eye-icon
     const handleEyeAction = () => {
         setIsOpen(!isOpen);
+        setColorBoolFunction();
+    
+    }
+
+    //assign the different colors to indexes of the array inside the useState-hook so the according route is hidden when the eye-icon is clicked
+    const setColorBoolFunction = () => {
+        if(props.route_color === "black"){
+            props.setColorBool([!props.colorBool[0], props.colorBool[1], props.colorBool[2], props.colorBool[3]]);
+        } else if (props.route_color === "green") {
+            props.setColorBool([props.colorBool[0], !props.colorBool[1], props.colorBool[2], props.colorBool[3]]);
+        } else if (props.route_color === "blue") {
+            props.setColorBool([props.colorBool[0], props.colorBool[1], !props.colorBool[2], props.colorBool[3]]);
+        } else if (props.route_color === "purpel") {
+            props.setColorBool([props.colorBool[0], props.colorBool[1], props.colorBool[2], !props.colorBool[3]]);
+        }   
     }
 
     //passes the route data (props) to the breakdown and detailed comparison site
@@ -52,6 +73,7 @@ const RoutePanel = (props: routen_props) => {
 
     // create hook for route color
     const [color, setColor] = useState("");
+    const [colorname, setColorName] = useState("");
 
     //determine the correct route color
     const determine_route_color = () => {
@@ -61,7 +83,7 @@ const RoutePanel = (props: routen_props) => {
 
         //loop the pairs and when the prop route color equals the key color then set the hook to the value (the icon object)
         for (const [key, value] of Object.entries(lines)) {
-            if(key === props.route_color) setColor(value);
+            if(key === props.route_color) {setColor(value)};
           }
     }
 
