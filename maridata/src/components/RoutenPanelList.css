@@ -16,3 +16,19 @@
     width: 500px;
     overflow-y: scroll;
 }
+
+.route_panel_{
+    padding-left: 1em;
+    padding-bottom: 1em;
+    display: flex;
+    flex-direction: row;
+}
+
+.route_panel_divider{
+    width: 230px;
+}
+
+.route_panel_dropdown{
+    background-color: var(--color-gray-3);
+    border: 5px;
+}
