@@ -11,7 +11,7 @@ import eye_closed from "./../icons/eye_closed.svg";
 import eye_open from "./../icons/eye_open.svg";
 import line_green from "./../icons/line_green.svg";
 import line_black from "./../icons/line_black.svg";
-import line_purpel from "./../icons/line_purpel.svg";
+import line_purple from "./../icons/line_purple.svg";
 import line_blue from "./../icons/line_blue.svg";
 import { bool } from 'prop-types';
 import RoutenPanelList from "./RoutenPanelList";
@@ -51,7 +51,7 @@ const RoutePanel = (props: (routen_props & route_colors)) => {
             props.setColorBool([props.colorBool[0], !props.colorBool[1], props.colorBool[2], props.colorBool[3]]);
         } else if (props.route_color === "blue") {
             props.setColorBool([props.colorBool[0], props.colorBool[1], !props.colorBool[2], props.colorBool[3]]);
-        } else if (props.route_color === "purpel") {
+        } else if (props.route_color === "purple") {
             props.setColorBool([props.colorBool[0], props.colorBool[1], props.colorBool[2], !props.colorBool[3]]);
         }   
     }
@@ -79,7 +79,7 @@ const RoutePanel = (props: (routen_props & route_colors)) => {
     const determine_route_color = () => {
 
         //create [key, value] pairs for the color name and icon
-        const lines = {"black": line_black, "green": line_green, "blue": line_blue, "purpel": line_purpel}
+        const lines = {"black": line_black, "green": line_green, "blue": line_blue, "purple": line_purple}
 
         //loop the pairs and when the prop route color equals the key color then set the hook to the value (the icon object)
         for (const [key, value] of Object.entries(lines)) {

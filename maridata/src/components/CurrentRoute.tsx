@@ -5,7 +5,7 @@ import time_logo from "./../icons/Time.svg";
 import {routen_props} from "./../components/Route";
 import line_green from "./../icons/line_green.svg";
 import line_black from "./../icons/line_black.svg";
-import line_purpel from "./../icons/line_purpel.svg";
+import line_purple from "./../icons/line_purple.svg";
 import line_blue from "./../icons/line_blue.svg";
 
 const CurrentRoute = (props: routen_props) => {
@@ -26,7 +26,7 @@ const CurrentRoute = (props: routen_props) => {
     const determine_route_color = () => {
 
         //create [key, value] pairs for the color name and icon
-        const lines = {"black": line_black, "green": line_green, "blue": line_blue, "purpel": line_purpel}
+        const lines = {"black": line_black, "green": line_green, "blue": line_blue, "purple": line_purple}
 
         //loop the pairs and when the prop route color equals the key color then set the hook to the value (the icon object)
         for (const [key, value] of Object.entries(lines)) {

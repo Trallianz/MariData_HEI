@@ -7,16 +7,13 @@ interface tableElements {
 
 const EcoRatingTable = ({ icon, attribute, cPoints, sPoints }: tableElements) => {
 
+    //returns the difference between two numbers in percent
     function getDifference(x: number, y: number) {
-        //example "-60%"
-        if (x > y) {
-            return (Math.round(((y / x) * 100) - 100) + "%");
-        }
         //example "+60%"
         if (x < y) {
             return ("+" + Math.round(((y / x) * 100) - 100) + "%");
         }
-        //"0%"
+        //example "0%" or "-60%"
         else {
             return (Math.round(((y / x) * 100) - 100) + "%");
         }
