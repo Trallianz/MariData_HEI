@@ -30,6 +30,12 @@
     padding-bottom: 10px;
     
 }
+.routen_panel_hide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
 
 .routen_panel_hide > img{
     position: relative;

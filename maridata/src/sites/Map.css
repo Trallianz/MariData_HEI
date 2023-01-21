@@ -13,16 +13,54 @@
 #land_botton{
     position: relative;
     left: 610px;
-    top: 739px;
+    top: 762px;
 }
 
 #line_map_black{
+    height:870px;
     position: relative;
     left: 820px;
-    top: -192px;
+    top: -186px;
+}
+
+#line_map_green{
+    height:870px;
+    position: relative;
+    left: 794px;
+    top: -1054px;
+}
+
+#line_map_purpel{
+    height:870px;
+    position: relative;
+    left: 838px;
+    top: -1925px;
+}
+
+#line_map_blue{
+    height:870px;
+    position: relative;
+    left: 754px;
+    top: -2792px;
 }
 
 .map_panel{
     position: relative;
-    top: -920px;
+    top: -3720px;
+}
+
+#location_top{
+    position: relative;
+    left: 901px;
+    top: -3700px;
+}
+
+#location_botten{
+    position: relative;
+    left: 1215px;
+    top: -2850px;
+}
+
+.map_panel{
+    margin-top: -2em;
 }
