@@ -1,0 +1,4 @@
+.btn{
+    @apply bg-gray2 text-white rounded font-semibold px-8 py-2
+}
+
