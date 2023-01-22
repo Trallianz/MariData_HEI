@@ -1,0 +1,13 @@
+.dropdown{
+    background-color: var(--color-gray-2);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown li{
+    font-size: 20px;
+    font-weight: bold;
+}
