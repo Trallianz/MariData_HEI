@@ -15,7 +15,7 @@ import cargo_ship from './../icons/cargo_ship.svg'
 
 
 const Comparison = () => {
-
+  
   const { state } = useLocation();
   const { props } = state;
   const navigate = useNavigate();
