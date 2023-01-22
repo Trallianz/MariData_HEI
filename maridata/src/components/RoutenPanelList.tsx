@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import RoutenPanel from "./RoutePanel";
 import CurrentRoute from './CurrentRoute';
 import Dropdown from './Dropdown';
@@ -35,32 +35,6 @@ const RoutenPanelList = (props: RoutenPanelList) => {
     const [currentSelect, setCurrentSelect] = useState("eco-score");
 
 
-    function renderMap() {
-        return routes.map((route, index) =>
-            <RoutenPanel
-                key={index}
-                date={route.date}
-                eco_rating={route.eco_rating}
-                time_driven={route.time_driven}
-                time_anchor={route.time_anchor}
-                speed={route.speed}
-                ship_type={route.ship_type}
-                fuel_consumption={route.fuel_consumption}
-                co2_factor={route.co2_factor}
-                distance={route.distance}
-                capacity={route.capacity}
-                route_color={route.route_color}
-                colorBool={route.colorBool}
-                setColorBool={route.setColorBool}
-                currentRoute={route.currentRoute} />
-        )
-    }
-
-    useEffect(() => {
-        renderMap();
-    }, [currentSelect]);
-
-
     return (
         <div className='route_panel_list_routes'>
             <div className='route_panel_'>
@@ -93,7 +67,25 @@ const RoutenPanelList = (props: RoutenPanelList) => {
 
                 { //for each route in the route map a div containing the route will be created
                     //"key={index}" bitte nicht löschen, wird gebraucht, sonst gibt react in der Console einen Error
-                    renderMap()}
+                    routes.map((route, index) => {
+                        return <RoutenPanel
+                            key={index}
+                            date={route.date}
+                            eco_rating={route.eco_rating}
+                            time_driven={route.time_driven}
+                            time_anchor={route.time_anchor}
+                            speed={route.speed}
+                            ship_type={route.ship_type}
+                            fuel_consumption={route.fuel_consumption}
+                            co2_factor={route.co2_factor}
+                            distance={route.distance}
+                            capacity={route.capacity}
+                            route_color={route.route_color}
+                            colorBool={route.colorBool}
+                            setColorBool={route.setColorBool}
+                            currentRoute={route.currentRoute} />
+                    })
+                }
             </div>
         </div>
     )
