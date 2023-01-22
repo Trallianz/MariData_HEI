@@ -2,7 +2,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import Topbar from '../components/Topbar'
 import './Comparison.css';
-import EcoRatingTableItem from '../components/EcoRatingTableItem';
 import ComparisonTime from '../components/ComparisonTime';
 import ComparisonTable from '../components/ComparisonTable';
 import leaf_logo from './../icons/Leaf.svg'
@@ -47,14 +46,14 @@ const Comparison = () => {
                 <img src={calender} alt='' />
                 <p>Date:</p>
               </div>
-              <div className='flex w-[60px] justify-end font-bold text-3xl'>{props.date}</div>
+              <div className='flex w-[60px] justify-end font-bold text-3xl'>{props.currentRoute.date}</div>
               <div className='flex w-[60px] justify-end font-bold text-3xl'>{props.date}</div>
               <div className='flex w-[42px] justify-end'></div>
               <div className='flex justify-end'></div>
             </div>
           </div>
           <div >
-            <ComparisonTable icon={leaf_logo} attribute="Eco-Rating:" cPoints={props.eco_rating} sPoints={props.eco_rating} />
+            <ComparisonTable icon={leaf_logo} attribute="Eco-Rating:" cPoints={props.currentRoute.eco_rating} sPoints={props.eco_rating} />
           </div>
 
           <div>
@@ -66,19 +65,19 @@ const Comparison = () => {
             </div>
 
             <div>
-              <ComparisonTime icon={ship_d} attribute="driven" cTime={props.time_driven} sTime={props.time_driven} />
+              <ComparisonTime icon={ship_d} attribute="driven" cTime={props.currentRoute.time_driven} sTime={props.time_driven} />
             </div>
 
 
             <div >
-              <ComparisonTime icon={anchor} attribute="anchored" cTime={props.time_anchor} sTime={props.time_anchor} />
+              <ComparisonTime icon={anchor} attribute="anchored" cTime={props.currentRoute.time_anchor} sTime={props.time_anchor} />
             </div>
 
           </div>
 
 
           <div>
-            <ComparisonTable icon={speedometer} attribute="Avg. Speed:" cPoints={props.speed} sPoints={props.speed} />
+            <ComparisonTable icon={speedometer} attribute="Avg. Speed:" cPoints={props.currentRoute.speed} sPoints={props.speed} />
           </div>
 
           <div>
@@ -87,7 +86,7 @@ const Comparison = () => {
                 <img src={cargo_ship} />
                 <p>Ship Type:</p>
               </div>
-              <div className='flex w-[60px] justify-end font-bold text-3xl'>{props.ship_type}</div>
+              <div className='flex w-[60px] justify-end font-bold text-3xl'>{props.currentRoute.ship_type}</div>
               <div className='flex w-[60px] justify-end font-bold text-3xl'>{props.ship_type}</div>
               <div className='flex w-[42px] justify-end'></div>
               <div className='flex justify-end'></div>

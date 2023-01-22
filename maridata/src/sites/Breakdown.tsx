@@ -22,35 +22,35 @@ const Breakdown = () => {
             </svg>
           </button >
           <Radar
-            c_eco={props.eco_rating}
-            c_fuel={props.fuel_consumption}
-            c_co2={props.co2_factor}
-            c_distance={props.distance}
-            c_capacity={props.capacity}
-            s_eco={props.eco_rating+3}
-            s_fuel={props.fuel_consumption+3}
-            s_co2={props.co2_factor+3}
-            s_distance={props.distance+3}
-            s_capacity={props.capacity+3} />
+            c_eco={props.currentRoute.eco_rating}
+            c_fuel={props.currentRoute.fuel_consumption}
+            c_co2={props.currentRoute.co2_factor}
+            c_distance={props.currentRoute.distance}
+            c_capacity={props.currentRoute.capacity}
+            s_eco={props.eco_rating}
+            s_fuel={props.fuel_consumption}
+            s_co2={props.co2_factor}
+            s_distance={props.distance}
+            s_capacity={props.capacity} />
         </div>
         <div className='h-full flex flex-col justify-between items-end'>
           <div className='bg-gray0 w-[500px] p-3 rounded-lg'>
             <div className='flex'>
-              <div>
+              <div className='p-2 pl-52'>
                 <div className='font-bold text-xl'>Current</div>
-                <div>CurrentFarbe</div>
+                <div className='h-[4px] border-dashed border-black border-2'></div>
               </div>
-              <div>
+              <div className='p-2'>
                 <div className='font-bold text-xl'>Suggestion</div>
-                <div>SuggestionFarbe</div>
+                <div className='h-[4px] border-dashed border-blue-600 border-2'></div>
               </div>
             </div>
             <div className='flex flex-col items-center'>
-              <EcoRatingTableItem icon={Leaf} attribute="Eco-Rating" cPoints={props.eco_rating} sPoints={props.eco_rating} />
-              <EcoRatingTableItem icon={Leaf} attribute="Fuel Consumption" cPoints={props.fuel_consumption} sPoints={props.fuel_consumption} />
-              <EcoRatingTableItem icon={Leaf} attribute="CO2 Factor" cPoints={props.co2_factor} sPoints={props.co2_factor} />
-              <EcoRatingTableItem icon={Leaf} attribute="Distance" cPoints={props.distance} sPoints={props.distance} />
-              <EcoRatingTableItem icon={Leaf} attribute="Capacity" cPoints={props.capacity} sPoints={props.capacity} />
+              <EcoRatingTableItem icon={Leaf} attribute="Eco-Rating" cPoints={props.currentRoute.eco_rating} sPoints={props.eco_rating} />
+              <EcoRatingTableItem icon={Leaf} attribute="Fuel Consumption" cPoints={props.currentRoute.fuel_consumption} sPoints={props.fuel_consumption} />
+              <EcoRatingTableItem icon={Leaf} attribute="CO2 Factor" cPoints={props.currentRoute.co2_factor} sPoints={props.co2_factor} />
+              <EcoRatingTableItem icon={Leaf} attribute="Distance" cPoints={props.currentRoute.distance} sPoints={props.distance} />
+              <EcoRatingTableItem icon={Leaf} attribute="Capacity" cPoints={props.currentRoute.capacity} sPoints={props.capacity} />
             </div>
           </div>
           <div onClick={() => { alert('The Eco-Score is dark magic.') }}>

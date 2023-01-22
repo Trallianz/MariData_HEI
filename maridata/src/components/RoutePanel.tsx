@@ -18,6 +18,7 @@ import TimeCalc from './TimeCalc';
 interface route_colors {
     colorBool: any
     setColorBool: any
+    currentRoute: any
 }
 
 const RoutePanel = (props: (routen_props & route_colors)) => {
@@ -61,7 +62,8 @@ const RoutePanel = (props: (routen_props & route_colors)) => {
                 co2_factor: props.co2_factor,
                 distance: props.distance,
                 capacity: props.capacity,
-                route_color: props.route_color
+                route_color: props.route_color,
+                currentRoute: props.currentRoute
             }}
         });
     }
