@@ -40,8 +40,8 @@ export const ComparisonTable = ({ icon, attribute, cPoints, sPoints }: compareEl
                 </div>
 
             </div>
-            <div className='flex w-[60px] justify-end font-bold text-3xl'>{Math.round(cPoints).toFixed(1)}</div>
-            <div className='flex w-[60px] justify-end font-bold text-3xl'>{Math.round(sPoints).toFixed(1)}</div>
+            <div className='flex w-[60px] justify-end font-bold text-3xl'>{(cPoints).toFixed(1)}</div>
+            <div className='flex w-[60px] justify-end font-bold text-3xl'>{(sPoints).toFixed(1)}</div>
             <div className='flex w-[42px] justify-end'>{getDifference(cPoints, sPoints)}</div>
             <div className='flex justify-end'>{getSum(cPoints, sPoints)}</div>
         </div>
