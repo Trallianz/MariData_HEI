@@ -24,8 +24,6 @@ const Comparison = () => {
     navigate("/breakdown", { state: { props } });
   }
 
-  console.log("Comparison");
-  console.log({props});
   //split time in hours and minutes
   const time_array = props.time_driven.split(",")
   const time_driven_hours = time_array[0];

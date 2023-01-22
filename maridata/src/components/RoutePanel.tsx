@@ -60,13 +60,8 @@ const RoutePanel = (props: (routen_props & route_colors)) => {
     const navigate = useNavigate();
 
     const handleClickAction = () => {
-        const { date, eco_rating, time_driven, time_anchor, speed, ship_type, fuel_consumption, co2_factor, distance, capacity, route_color } = props;
-
-        const newProps = { date, eco_rating, time_driven, time_anchor, speed, ship_type, fuel_consumption, co2_factor, distance, capacity, route_color };
-        console.log(newProps);
-
         navigate("/comparison", {
-            state: {
+            state: {props: {
                 date: props.date,
                 eco_rating: props.eco_rating,
                 time_driven: props.time_driven,
@@ -78,7 +73,7 @@ const RoutePanel = (props: (routen_props & route_colors)) => {
                 distance: props.distance,
                 capacity: props.capacity,
                 route_color: props.route_color
-            }
+            }}
         });
     }
 
