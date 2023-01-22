@@ -7,17 +7,9 @@ import line_green from "./../icons/line_green.svg";
 import line_black from "./../icons/line_black.svg";
 import line_purple from "./../icons/line_purple.svg";
 import line_blue from "./../icons/line_blue.svg";
+import TimeCalc from './TimeCalc';
 
 const CurrentRoute = (props: routen_props) => {
-
-     //split time in hours and minutes
-     const time_array = props.time_driven.split(",")
-     const time_driven_hours = time_array[0];
-     const time_driven_minutes = time_array[1];
- 
-     const time_array_anchor = props.time_anchor.split(",")
-     const anchor_hours = time_array_anchor[0];
-     const anchor_minutes = time_array_anchor[1];
 
      // create hook for route color
     const [color, setColor] = useState("");
@@ -55,8 +47,7 @@ const CurrentRoute = (props: routen_props) => {
                 </div>
                 <div className='current_route_time'>
                     <img src={time_logo} alt="time logo" />
-                    <p id='time_text1'>{parseInt(time_driven_hours) + parseInt(anchor_hours)}h</p>
-                    <p>{parseInt(time_driven_minutes) + parseInt(anchor_minutes)}min</p>
+                    <p id='time_text1'>{TimeCalc(props.time_driven+props.time_anchor)}</p>
                 </div>
             </div>
         </div>

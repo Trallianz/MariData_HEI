@@ -42,8 +42,8 @@ const Dropdown = ({setCurrentSelect, setRoutes, route_list, setIsMenuVisible}: D
 
         } else if (currentSelect2 === "time") {
             let route_list_time = route_list.sort((a, b) => (
-                (parseInt(a.time_driven.split(",")[0]) * 60 + parseInt(a.time_anchor.split(",")[0]) * 60 + parseInt(a.time_driven.split(",")[1]) + parseInt(a.time_anchor.split(",")[1]))
-                < (parseInt(b.time_driven.split(",")[0]) * 60 + parseInt(b.time_anchor.split(",")[0]) * 60 + parseInt(b.time_driven.split(",")[1]) + parseInt(b.time_anchor.split(",")[1]))) ? -1 : 1);
+                (a.time_driven + a.time_anchor)
+                < (b.time_driven + b.time_anchor)) ? -1 : 1);
             setRoutes(route_list_time);
             console.log(route_list_time);
             

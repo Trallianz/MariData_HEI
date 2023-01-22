@@ -1,4 +1,3 @@
-import { time } from 'console';
 import React, { useEffect, useState } from 'react';
 import './RoutenPanel.css';
 import { routen_props } from "./../components/Route";
@@ -13,9 +12,8 @@ import line_green from "./../icons/line_green.svg";
 import line_black from "./../icons/line_black.svg";
 import line_purple from "./../icons/line_purple.svg";
 import line_blue from "./../icons/line_blue.svg";
-import { bool } from 'prop-types';
-import RoutenPanelList from "./RoutenPanelList";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import TimeCalc from './TimeCalc';
 
 interface route_colors {
     colorBool: any
@@ -23,15 +21,6 @@ interface route_colors {
 }
 
 const RoutePanel = (props: (routen_props & route_colors)) => {
-
-    //split time in hours and minutes
-    const time_array = props.time_driven.split(",")
-    const time_driven_hours = time_array[0];
-    const time_driven_minutes = time_array[1];
-
-    const time_array_anchor = props.time_anchor.split(",")
-    const anchor_hours = time_array_anchor[0];
-    const anchor_minutes = time_array_anchor[1];
 
     //handle which eye (closed, open) is seen
     const [isOpen, setIsOpen] = useState(true);
@@ -130,8 +119,7 @@ const RoutePanel = (props: (routen_props & route_colors)) => {
                         <div className='routen_panel_time'>
                             <p>Time:</p>
                             <div className='routen_panel_eco_rating_value'>
-                                <p className='time'>{parseInt(time_driven_hours) + parseInt(anchor_hours)}h</p>
-                                <p className='time'>{parseInt(time_driven_minutes) + parseInt(anchor_minutes)}min</p>
+                                <p className='time'>{TimeCalc(props.time_driven+props.time_anchor)}</p>
                                 <p className='time_difference'>+38min</p>
                             </div>
                         </div>

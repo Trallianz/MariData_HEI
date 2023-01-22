@@ -11,7 +11,6 @@ const Breakdown = () => {
   const { state } = useLocation();
   const { props } = state;
 
-
   return (
     <div className='h-full w-full bg-gray1 text-text0'>
       <Topbar name={"Breakdown"} />

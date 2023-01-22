@@ -1,20 +1,13 @@
+import TimeCalc from "./TimeCalc";
+
 interface compareElements {
     icon: string,
     attribute: string,
-    cTime: string,
-    sTime: string,
+    cTime: number,
+    sTime: number,
 }
 
 export const ComparisonTable = ({ icon, attribute, cTime, sTime }: compareElements) => {
-
-    //split time in hours and minutes
-    const cTime_array = cTime.split(",")
-    const cTime_driven_hours = cTime_array[0];
-    const cTime_driven_minutes = cTime_array[1];
-
-    const sTime_array = cTime.split(",")
-    const sTime_driven_hours = sTime_array[0];
-    const sTime_driven_minutes = sTime_array[1];
 
     function getDifference(x: number, y: number) {
         //example "-60%"
@@ -37,10 +30,10 @@ export const ComparisonTable = ({ icon, attribute, cTime, sTime }: compareElemen
                 </div>
 
             </div>
-            <div className='flex justify-end font-bold text-3xl'>{cTime_driven_hours}h {cTime_driven_minutes} min</div>
-            <div className='flex justify-end font-bold text-3xl'>{sTime_driven_hours}h {sTime_driven_minutes} min</div>
-            <div className='flex w-[42px] justify-center'>{getDifference(parseInt(cTime), parseInt(sTime))}</div>
-            <div className='flex justify-end'> {parseInt(cTime) - parseInt(sTime)} min</div>
+            <div className='flex justify-end font-bold text-3xl'>{TimeCalc(cTime)}</div>
+            <div className='flex justify-end font-bold text-3xl'>{TimeCalc(sTime)}</div>
+            <div className='flex w-[42px] justify-center'>{getDifference(cTime, sTime)}</div>
+            <div className='flex justify-end'> {cTime - sTime}</div>
         </div>
     )
 }

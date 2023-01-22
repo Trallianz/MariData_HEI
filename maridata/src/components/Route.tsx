@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 export interface routen_props{
     date: string;
     eco_rating: number;
-    time_driven: string;
-    time_anchor: string;
+    time_driven: number;
+    time_anchor: number;
     speed: number;
     ship_type: string;
     fuel_consumption: number;
