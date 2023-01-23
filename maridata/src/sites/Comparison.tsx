@@ -55,9 +55,8 @@ const Comparison = () => {
           <div >
             <ComparisonTable icon={leaf_logo} attribute="Eco-Rating:" cPoints={props.currentRoute.eco_rating} sPoints={props.eco_rating} />
           </div>
-
           <div>
-            <div className='flex text-2xl'>
+            <div className='flex my-2 text-2xl'>
               <img src={time_logo} alt="clock for the time comparison" />
               <div className=' mx-7'>
                 Time:
@@ -67,23 +66,17 @@ const Comparison = () => {
             <div>
               <ComparisonTime icon={ship_d} attribute="driven" cTime={props.currentRoute.time_driven} sTime={props.time_driven} />
             </div>
-
-
             <div >
               <ComparisonTime icon={anchor} attribute="anchored" cTime={props.currentRoute.time_anchor} sTime={props.time_anchor} />
             </div>
-
           </div>
-
-
           <div>
             <ComparisonTable icon={speedometer} attribute="Avg. Speed:" cPoints={props.currentRoute.speed} sPoints={props.speed} />
           </div>
-
           <div>
             <div className='flex w-full items-center justify-between p-3 m-1 bg-gray1'>
               <div className="flex justify-between w-[131px] text-2xl">
-                <img src={cargo_ship} />
+                <img src={cargo_ship} alt='the ship icon of ship type comparison' />
                 <p>Ship Type:</p>
               </div>
               <div className='flex w-[60px] justify-end font-bold text-3xl'>{props.currentRoute.ship_type}</div>

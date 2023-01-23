@@ -1,3 +1,5 @@
+import arrow_down from './../icons/arrow_down_red.svg'
+
 interface compareElements {
     icon: string,
     attribute: string,
@@ -8,14 +10,15 @@ interface compareElements {
 export const ComparisonTable = ({ icon, attribute, cPoints, sPoints }: compareElements) => {
 
 
+
     function getSum(s: number, c: number) {
-        const sum = s - c;
+        const sum = c - s;
 
         if (sum > 0) {
-            return ("+" + sum)
+            return ("+" + sum.toFixed(1))
         }
         else {
-            return (sum)
+            return (sum.toFixed(1))
         }
 
     }
