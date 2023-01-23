@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import RoutenPanel from "./RoutePanel";
 import CurrentRoute from './CurrentRoute';
 import Dropdown from './Dropdown';
 import './RoutenPanelList.css';
+import { ShipContext } from '../ShipContext';
 
 interface RoutenPanelList {
     colorBool: any
@@ -11,17 +12,14 @@ interface RoutenPanelList {
 
 const RoutenPanelList = (props: RoutenPanelList) => {
 
-
-    //the route the ship is currently on
-    const [currentRoute, setCurrentRoute] = useState({ date: '31.01.2022', eco_rating: 5.9, time_driven: 880, time_anchor: 69, speed: 7, ship_type: 'Flugzeugträger', fuel_consumption: 8, co2_factor: 7, distance: 6, capacity: 5, route_color: 'black' });
-
+    const shipProp = useContext(ShipContext);   
 
     //create Routes to simulate data
     const route_list = [
-        { date: '28.02.2022', eco_rating: 6.2, time_driven: 680, time_anchor: 70, speed: 6.1, ship_type: 'x', fuel_consumption: 1, co2_factor: 1, distance: 1, capacity: 1, route_color: 'purple', colorBool: props.colorBool, setColorBool: props.setColorBool, currentRoute: currentRoute },
-        { date: '06.04.2021', eco_rating: 7.0, time_driven: 725, time_anchor: 35, speed: 1, ship_type: 'x', fuel_consumption: 1, co2_factor: 1, distance: 1, capacity: 1, route_color: 'green', colorBool: props.colorBool, setColorBool: props.setColorBool, currentRoute: currentRoute },
-        { date: '17.7.2022', eco_rating: 6.4, time_driven: 700, time_anchor: 125, speed: 1, ship_type: 'x', fuel_consumption: 1, co2_factor: 1, distance: 1, capacity: 1, route_color: 'blue', colorBool: props.colorBool, setColorBool: props.setColorBool, currentRoute: currentRoute },
-        { date: '17.7.2022', eco_rating: 6.4, time_driven: 700, time_anchor: 125, speed: 1, ship_type: 'x', fuel_consumption: 1, co2_factor: 1, distance: 1, capacity: 1, route_color: 'blue', colorBool: props.colorBool, setColorBool: props.setColorBool, currentRoute: currentRoute }
+        { date: '28.02.2022', eco_rating: 6.2, time_driven: 680, time_anchor: 70, speed: 6.1, ship_type: 'x', fuel_consumption: 1, co2_factor: 1, distance: 1, capacity: 1, route_color: 'purple', colorBool: props.colorBool, setColorBool: props.setColorBool, currentRoute: shipProp.currentRoute },
+        { date: '06.04.2021', eco_rating: 7.0, time_driven: 725, time_anchor: 35, speed: 1, ship_type: 'x', fuel_consumption: 1, co2_factor: 1, distance: 1, capacity: 1, route_color: 'green', colorBool: props.colorBool, setColorBool: props.setColorBool, currentRoute: shipProp.currentRoute },
+        { date: '17.7.2022', eco_rating: 6.4, time_driven: 700, time_anchor: 125, speed: 1, ship_type: 'x', fuel_consumption: 1, co2_factor: 1, distance: 1, capacity: 1, route_color: 'blue', colorBool: props.colorBool, setColorBool: props.setColorBool, currentRoute: shipProp.currentRoute },
+        { date: '17.7.2022', eco_rating: 6.4, time_driven: 700, time_anchor: 125, speed: 1, ship_type: 'x', fuel_consumption: 1, co2_factor: 1, distance: 1, capacity: 1, route_color: 'blue', colorBool: props.colorBool, setColorBool: props.setColorBool, currentRoute: shipProp.currentRoute }
     ];
 
 
@@ -50,17 +48,17 @@ const RoutenPanelList = (props: RoutenPanelList) => {
             </div>
             <div className='current_route_div'>
                 <CurrentRoute
-                    date={currentRoute.date}
-                    eco_rating={currentRoute.eco_rating}
-                    time_driven={currentRoute.time_driven}
-                    time_anchor={currentRoute.time_anchor}
-                    speed={currentRoute.speed}
-                    ship_type={currentRoute.ship_type}
-                    fuel_consumption={currentRoute.fuel_consumption}
-                    co2_factor={currentRoute.co2_factor}
-                    distance={currentRoute.distance}
-                    capacity={currentRoute.capacity}
-                    route_color={currentRoute.route_color} />
+                    date={shipProp.currentRoute.date}
+                    eco_rating={shipProp.currentRoute.eco_rating}
+                    time_driven={shipProp.currentRoute.time_driven}
+                    time_anchor={shipProp.currentRoute.time_anchor}
+                    speed={shipProp.currentRoute.speed}
+                    ship_type={shipProp.currentRoute.ship_type}
+                    fuel_consumption={shipProp.currentRoute.fuel_consumption}
+                    co2_factor={shipProp.currentRoute.co2_factor}
+                    distance={shipProp.currentRoute.distance}
+                    capacity={shipProp.currentRoute.capacity}
+                    route_color={shipProp.currentRoute.route_color} />
             </div>
             <div className='alternative_routes'>
 
