@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 
 export interface routen_props{
+    routeIndex: number;
     date: string;
     eco_rating: number;
     time_driven: number;

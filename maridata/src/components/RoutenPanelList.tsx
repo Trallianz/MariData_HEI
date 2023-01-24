@@ -42,9 +42,10 @@ const RoutenPanelList = (props: RoutenPanelList) => {
 
                 { //for each route in the route map a div containing the route will be created
                     //"key={index}" bitte nicht löschen, wird gebraucht, sonst gibt react in der Console einen Error
-                    shipProp.orderedRoutes.map((route: any, index: React.Key) => {
+                    shipProp.orderedRoutes.map((route: any, index: number) => {
                         return <RoutenPanel
                             key={index}
+                            routeIndex={index}
                             date={route.date}
                             eco_rating={route.eco_rating}
                             time_driven={route.time_driven}

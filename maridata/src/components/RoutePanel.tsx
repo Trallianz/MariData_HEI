@@ -51,6 +51,7 @@ const RoutePanel = (props: (routen_props & route_colors)) => {
     const handleClickAction = () => {
         navigate("/comparison", {
             state: {props: {
+                routeIndex: props.routeIndex,
                 date: props.date,
                 eco_rating: props.eco_rating,
                 time_driven: props.time_driven,

@@ -18,16 +18,51 @@ import { ShipContext } from '../ShipContext';
 
 const Comparison = () => {
 
-  const shipProp = useContext(ShipContext); 
+  const shipProp = useContext(ShipContext);
 
   const { state } = useLocation();
   const { props } = state;
   const navigate = useNavigate();
 
-  const to_breakdown_site = () => {
-    navigate("/breakdown", { state: { props } });
-  }
+  //swaps the current Route with the suggested Route
+  function changeRoute() {
+    const temp = shipProp.currentRoute;
 
+    shipProp.setCurrentRoute(shipProp.orderedRoutes[props.routeIndex]);
+
+    if (props.routeIndex == 0) {
+      shipProp.setOrderedRoutes([
+        temp,
+        shipProp.orderedRoutes[1],
+        shipProp.orderedRoutes[2],
+        shipProp.orderedRoutes[3]
+      ]);
+    } else if (props.routeIndex == 1) {
+      shipProp.setOrderedRoutes([
+        shipProp.orderedRoutes[0],
+        temp,
+        shipProp.orderedRoutes[2],
+        shipProp.orderedRoutes[3]
+      ]);
+    } else if (props.routeIndex == 2) {
+      shipProp.setOrderedRoutes([
+        shipProp.orderedRoutes[0],
+        shipProp.orderedRoutes[1],
+        temp,
+        shipProp.orderedRoutes[3]
+      ]);
+    } else {
+      shipProp.setOrderedRoutes([
+        shipProp.orderedRoutes[0],
+        shipProp.orderedRoutes[1],
+        shipProp.orderedRoutes[2],
+        temp
+      ]);
+    }
+
+    //Back to Map
+    navigate('/');
+  }
 
 
   return (
@@ -91,14 +126,14 @@ const Comparison = () => {
           </div>
         </div>
         <div className='flex justify-between'>
-          <button onClick={() => to_breakdown_site()} className='btn'>
+          <button onClick={() => navigate("/breakdown", { state: { props } })} className='btn'>
             to breakdown
           </button>
           <div className='flex'>
             <button onClick={() => navigate('/')} className="btn mx-9">
               Cancel
             </button>
-            <button onClick={() => navigate('/')} className="btn">
+            <button onClick={() => changeRoute()} className="btn">
               Navigate
             </button>
           </div>
