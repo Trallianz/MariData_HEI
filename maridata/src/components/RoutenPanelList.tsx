@@ -30,7 +30,7 @@ const RoutenPanelList = (props: RoutenPanelList) => {
     const [isMenuVisible, setIsMenuVisible] = useState(false);
 
     //hook for the currenctly selected value in the dropdown menu
-    const [currentSelect, setCurrentSelect] = useState("eco-score");
+    const [dropdownSelect, setDropdownSelect] = useState("eco-score");
 
 
     return (
@@ -42,8 +42,8 @@ const RoutenPanelList = (props: RoutenPanelList) => {
                 </div>
                 <button className='route_panel_dropdown' onClick={() => setIsMenuVisible(!isMenuVisible)}>
                     <div className='divider2'></div>
-                    {currentSelect}
-                    {isMenuVisible && <Dropdown setCurrentSelect={setCurrentSelect} setRoutes={setRoutes} route_list={route_list} setIsMenuVisible={setIsMenuVisible} />}
+                    {dropdownSelect}
+                    {isMenuVisible && <Dropdown setDropdownSelect={setDropdownSelect} setRoutes={setRoutes} route_list={route_list} setIsMenuVisible={setIsMenuVisible} />}
                 </button>
             </div>
             <div className='current_route_div'>
