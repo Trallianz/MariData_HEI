@@ -47,18 +47,7 @@ const RoutenPanelList = (props: RoutenPanelList) => {
                 </button>
             </div>
             <div className='current_route_div'>
-                <CurrentRoute
-                    date={shipProp.currentRoute.date}
-                    eco_rating={shipProp.currentRoute.eco_rating}
-                    time_driven={shipProp.currentRoute.time_driven}
-                    time_anchor={shipProp.currentRoute.time_anchor}
-                    speed={shipProp.currentRoute.speed}
-                    ship_type={shipProp.currentRoute.ship_type}
-                    fuel_consumption={shipProp.currentRoute.fuel_consumption}
-                    co2_factor={shipProp.currentRoute.co2_factor}
-                    distance={shipProp.currentRoute.distance}
-                    capacity={shipProp.currentRoute.capacity}
-                    route_color={shipProp.currentRoute.route_color} />
+                <CurrentRoute />
             </div>
             <div className='alternative_routes'>
 
