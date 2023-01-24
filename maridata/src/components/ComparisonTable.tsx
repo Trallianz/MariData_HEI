@@ -1,4 +1,6 @@
-import arrow_down from './../icons/arrow_down_red.svg'
+import red_triangle from "./../icons/arrow_down_red.svg";
+import gray_triangel from "./../icons/arrow_grey.svg";
+import green_triangle from "./../icons/arrow_up_green.svg";
 
 interface compareElements {
     icon: string,
@@ -9,7 +11,7 @@ interface compareElements {
 
 export const ComparisonTable = ({ icon, attribute, cPoints, sPoints }: compareElements) => {
 
-
+    let triangle = gray_triangel
 
     function getSum(s: number, c: number) {
         const sum = c - s;
@@ -21,6 +23,18 @@ export const ComparisonTable = ({ icon, attribute, cPoints, sPoints }: compareEl
             return (sum.toFixed(1))
         }
 
+    }
+
+    function showTriangle(c: number, s: number) {
+        const sum = c - s
+        if (sum > 0) {
+            triangle = red_triangle
+            return (triangle)
+        }
+        else {
+            triangle = green_triangle
+            return (triangle)
+        }
     }
 
     function getDifference(x: number, y: number) {
@@ -46,7 +60,8 @@ export const ComparisonTable = ({ icon, attribute, cPoints, sPoints }: compareEl
             <div className='flex w-[60px] justify-end font-bold text-3xl'>{(cPoints).toFixed(1)}</div>
             <div className='flex w-[60px] justify-end font-bold text-3xl'>{(sPoints).toFixed(1)}</div>
             <div className='flex w-[42px] justify-end'>{getDifference(cPoints, sPoints)}</div>
-            <div className='flex justify-end'>{getSum(cPoints, sPoints)}</div>
+            <div className='flex '><img src={showTriangle(cPoints, sPoints)} alt="the triangel for compare" /></div>
+            <div className='flex '>{getSum(cPoints, sPoints)}</div>
         </div>
     )
 }
