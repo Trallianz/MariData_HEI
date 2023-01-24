@@ -4,8 +4,13 @@ import StandardButton from '../components/StandardButton';
 import EcoRatingTableItem from '../components/EcoRatingTableItem';
 import { useLocation, useNavigate } from "react-router-dom";
 import Leaf from "./../icons/Leaf.svg"
+import { useContext } from 'react';
+import { ShipContext } from '../ShipContext';
 
 const Breakdown = () => {
+
+
+  const shipProp = useContext(ShipContext); 
 
   const navigate = useNavigate();
   const { state } = useLocation();
@@ -22,11 +27,11 @@ const Breakdown = () => {
             </svg>
           </button >
           <Radar
-            c_eco={props.currentRoute.eco_rating}
-            c_fuel={props.currentRoute.fuel_consumption}
-            c_co2={props.currentRoute.co2_factor}
-            c_distance={props.currentRoute.distance}
-            c_capacity={props.currentRoute.capacity}
+            c_eco={shipProp.currentRoute.eco_rating}
+            c_fuel={shipProp.currentRoute.fuel_consumption}
+            c_co2={shipProp.currentRoute.co2_factor}
+            c_distance={shipProp.currentRoute.distance}
+            c_capacity={shipProp.currentRoute.capacity}
             s_eco={props.eco_rating}
             s_fuel={props.fuel_consumption}
             s_co2={props.co2_factor}
@@ -46,20 +51,17 @@ const Breakdown = () => {
               </div>
             </div>
             <div className='flex flex-col items-center'>
-              <EcoRatingTableItem icon={Leaf} attribute="Eco-Rating" cPoints={props.currentRoute.eco_rating} sPoints={props.eco_rating} />
-              <EcoRatingTableItem icon={Leaf} attribute="Fuel Consumption" cPoints={props.currentRoute.fuel_consumption} sPoints={props.fuel_consumption} />
-              <EcoRatingTableItem icon={Leaf} attribute="CO2 Factor" cPoints={props.currentRoute.co2_factor} sPoints={props.co2_factor} />
-              <EcoRatingTableItem icon={Leaf} attribute="Distance" cPoints={props.currentRoute.distance} sPoints={props.distance} />
-              <EcoRatingTableItem icon={Leaf} attribute="Capacity" cPoints={props.currentRoute.capacity} sPoints={props.capacity} />
+              <EcoRatingTableItem icon={Leaf} attribute="Eco-Rating" cPoints={shipProp.currentRoute.eco_rating} sPoints={props.eco_rating} />
+              <EcoRatingTableItem icon={Leaf} attribute="Fuel Consumption" cPoints={shipProp.currentRoute.fuel_consumption} sPoints={props.fuel_consumption} />
+              <EcoRatingTableItem icon={Leaf} attribute="CO2 Factor" cPoints={shipProp.currentRoute.co2_factor} sPoints={props.co2_factor} />
+              <EcoRatingTableItem icon={Leaf} attribute="Distance" cPoints={shipProp.currentRoute.distance} sPoints={props.distance} />
+              <EcoRatingTableItem icon={Leaf} attribute="Capacity" cPoints={shipProp.currentRoute.capacity} sPoints={props.capacity} />
             </div>
           </div>
           <div onClick={() => { alert('The Eco-Score is dark magic.') }}>
             <StandardButton label={"How is the Eco-Rating calculated?"} />
           </div>
         </div>
-      </div>
-      <div>
-        {props.eco_rating}
       </div>
     </div>
   )
