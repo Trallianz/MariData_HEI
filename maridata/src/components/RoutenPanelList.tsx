@@ -14,18 +14,6 @@ const RoutenPanelList = (props: RoutenPanelList) => {
 
     const shipProp = useContext(ShipContext);
 
-    //create Routes to simulate data
-    const route_list = [
-        { date: '28.02.2022', eco_rating: 6.2, time_driven: 680, time_anchor: 70, speed: 6.1, ship_type: 'x', fuel_consumption: 1, co2_factor: 1, distance: 1, capacity: 1, route_color: 'purple', colorBool: props.colorBool, setColorBool: props.setColorBool },
-        { date: '06.04.2021', eco_rating: 7.0, time_driven: 725, time_anchor: 35, speed: 1, ship_type: 'x', fuel_consumption: 1, co2_factor: 1, distance: 1, capacity: 1, route_color: 'green', colorBool: props.colorBool, setColorBool: props.setColorBool },
-        { date: '17.7.2022', eco_rating: 6.4, time_driven: 700, time_anchor: 125, speed: 1, ship_type: 'x', fuel_consumption: 1, co2_factor: 1, distance: 1, capacity: 1, route_color: 'blue', colorBool: props.colorBool, setColorBool: props.setColorBool },
-        { date: '17.7.2022', eco_rating: 6.4, time_driven: 700, time_anchor: 125, speed: 1, ship_type: 'x', fuel_consumption: 1, co2_factor: 1, distance: 1, capacity: 1, route_color: 'blue', colorBool: props.colorBool, setColorBool: props.setColorBool }
-    ];
-
-
-    //hook that displays the route list when it updates
-    const [routes, setRoutes] = useState(route_list);
-
     //hook that displays the dropdown menu on click
     const [isMenuVisible, setIsMenuVisible] = useState(false);
 
@@ -43,7 +31,7 @@ const RoutenPanelList = (props: RoutenPanelList) => {
                 <button className='route_panel_dropdown' onClick={() => setIsMenuVisible(!isMenuVisible)}>
                     <div className='divider2'></div>
                     {dropdownSelect}
-                    {isMenuVisible && <Dropdown setDropdownSelect={setDropdownSelect} setRoutes={setRoutes} route_list={route_list} setIsMenuVisible={setIsMenuVisible} />}
+                    {isMenuVisible && <Dropdown setDropdownSelect={setDropdownSelect} setIsMenuVisible={setIsMenuVisible} />}
                 </button>
             </div>
             <div className='current_route_div'>
@@ -54,7 +42,7 @@ const RoutenPanelList = (props: RoutenPanelList) => {
 
                 { //for each route in the route map a div containing the route will be created
                     //"key={index}" bitte nicht löschen, wird gebraucht, sonst gibt react in der Console einen Error
-                    routes.map((route, index) => {
+                    shipProp.orderedRoutes.map((route: any, index: React.Key) => {
                         return <RoutenPanel
                             key={index}
                             date={route.date}
