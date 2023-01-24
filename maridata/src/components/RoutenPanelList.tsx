@@ -18,7 +18,7 @@ const RoutenPanelList = (props: route_props2) => {
     const [isMenuVisible, setIsMenuVisible] = useState(false);
 
     //hook for the currenctly selected value in the dropdown menu
-    const [dropdownSelect, setDropdownSelect] = useState("eco-score");
+    const [dropdownSelect, setDropdownSelect] = useState("Eco-Rating");
 
 
 
