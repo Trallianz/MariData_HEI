@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './RoutenPanel.css';
 import { routen_props } from "./../components/Route";
 import ecoscore_logo from "./../icons/Leaf.svg";
@@ -14,62 +14,66 @@ import line_purple from "./../icons/line_purple.svg";
 import line_blue from "./../icons/line_blue.svg";
 import { useNavigate } from "react-router-dom";
 import TimeCalc from './TimeCalc';
+import { ShipContext } from '../ShipContext';
 
-interface route_colors {
-    colorBool: any
-    setColorBool: any
+interface route_props2 {
+    isOpen: Array<boolean>;
+    setIsOpen: any;
 }
 
-const RoutePanel = (props: (routen_props & route_colors)) => {
+const RoutePanel = (props: any) => {
 
-    //handle which eye (closed, open) is seen
-    const [isOpen, setIsOpen] = useState(true);
+    const shipProp = useContext(ShipContext)
+
+    const [eyeOpen, setEyeOpen] = useState(true);
 
     // function that is called when clicked on the eye-icon
     const handleEyeAction = () => {
-        setIsOpen(!isOpen);
-        setColorBoolFunction();
+        let temp = shipProp.orderedRoutes;
+        temp[props.routeIndex].shown_on_map = !temp[props.routeIndex].shown_on_map;
+        shipProp.setOrderedRoutes(temp);
 
-    }
-
-    //assign the different colors to indexes of the array inside the useState-hook so the according route is hidden when the eye-icon is clicked
-    const setColorBoolFunction = () => {
-        if (props.route_color === "black") {
-            props.setColorBool([!props.colorBool[0], props.colorBool[1], props.colorBool[2], props.colorBool[3]]);
-        } else if (props.route_color === "green") {
-            props.setColorBool([props.colorBool[0], !props.colorBool[1], props.colorBool[2], props.colorBool[3]]);
-        } else if (props.route_color === "blue") {
-            props.setColorBool([props.colorBool[0], props.colorBool[1], !props.colorBool[2], props.colorBool[3]]);
-        } else if (props.route_color === "purple") {
-            props.setColorBool([props.colorBool[0], props.colorBool[1], props.colorBool[2], !props.colorBool[3]]);
+        for (let i = 0; i < shipProp.orderedRoutes.length; i++) {
+            if (props.route_color === "black") {
+                props.setIsOpen([!props.isOpen[0], props.isOpen[1], props.isOpen[2], props.isOpen[3]]);
+            } else if (props.route_color === "green") {
+                props.setIsOpen([props.isOpen[0], !props.isOpen[1], props.isOpen[2], props.isOpen[3]]);
+            } else if (props.route_color === "blue") {
+                props.setIsOpen([props.isOpen[0], props.isOpen[1], !props.isOpen[2], props.isOpen[3]]);
+            } else if (props.route_color === "purple") {
+                props.setIsOpen([props.isOpen[0], props.isOpen[1], props.isOpen[2], !props.isOpen[3]]);
+            }
         }
+        setEyeOpen(!eyeOpen)
     }
+
 
     //passes the route data (props) to the detailed comparison site
     const navigate = useNavigate();
 
     const handleClickAction = () => {
         navigate("/comparison", {
-            state: {props: {
-                routeIndex: props.routeIndex,
-                date: props.date,
-                eco_rating: props.eco_rating,
-                time_driven: props.time_driven,
-                time_anchor: props.time_anchor,
-                speed: props.speed,
-                ship_type: props.ship_type,
-                fuel_consumption: props.fuel_consumption,
-                co2_factor: props.co2_factor,
-                distance: props.distance,
-                capacity: props.capacity,
-                route_color: props.route_color
-            }}
+            state: {
+                props: {
+                    routeIndex: props.routeIndex,
+                    date: props.date,
+                    eco_rating: props.eco_rating,
+                    time_driven: props.time_driven,
+                    time_anchor: props.time_anchor,
+                    speed: props.speed,
+                    ship_type: props.ship_type,
+                    fuel_consumption: props.fuel_consumption,
+                    co2_factor: props.co2_factor,
+                    distance: props.distance,
+                    capacity: props.capacity,
+                    route_color: props.route_color
+                }
+            }
         });
     }
 
     // create hook for route color
     const [color, setColor] = useState("");
-    const [colorname, setColorName] = useState("");
 
     //determine the correct route color
     const determine_route_color = () => {
@@ -96,7 +100,7 @@ const RoutePanel = (props: (routen_props & route_colors)) => {
                     <img src={color} alt="open eye or closed eye, deping on if the route is visible" />
                 </div>
                 <div className='routen_panel_hide'>
-                    <img src={isOpen ? eye_open : eye_closed} alt="open eye or closed eye, deping on if the route is visible" onClick={() => handleEyeAction()} />
+                    <img src={eyeOpen ? eye_open : eye_closed} alt="open eye or closed eye, deping on if the route is visible" onClick={() => handleEyeAction()} />
                 </div>
             </div>
             <div className='routen_panel_div2'>
@@ -120,7 +124,7 @@ const RoutePanel = (props: (routen_props & route_colors)) => {
                         <div className='routen_panel_time'>
                             <p>Time:</p>
                             <div className='routen_panel_eco_rating_value'>
-                                <p className='time'>{TimeCalc(props.time_driven+props.time_anchor)}</p>
+                                <p className='time'>{TimeCalc(props.time_driven + props.time_anchor)}</p>
                                 <p className='time_difference'>+38min</p>
                             </div>
                         </div>

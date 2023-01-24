@@ -5,12 +5,12 @@ import Dropdown from './Dropdown';
 import './RoutenPanelList.css';
 import { ShipContext } from '../ShipContext';
 
-interface RoutenPanelList {
-    colorBool: any
-    setColorBool: any
+interface route_props2 {
+    isOpen: Array<boolean>;
+    setIsOpen: any;
 }
 
-const RoutenPanelList = (props: RoutenPanelList) => {
+const RoutenPanelList = (props: route_props2) => {
 
     const shipProp = useContext(ShipContext);
 
@@ -19,6 +19,7 @@ const RoutenPanelList = (props: RoutenPanelList) => {
 
     //hook for the currenctly selected value in the dropdown menu
     const [dropdownSelect, setDropdownSelect] = useState("eco-score");
+
 
 
     return (
@@ -42,6 +43,8 @@ const RoutenPanelList = (props: RoutenPanelList) => {
 
                 { //for each route in the route map a div containing the route will be created
                     //"key={index}" bitte nicht löschen, wird gebraucht, sonst gibt react in der Console einen Error
+
+
                     shipProp.orderedRoutes.map((route: any, index: number) => {
                         return <RoutenPanel
                             key={index}
@@ -57,8 +60,8 @@ const RoutenPanelList = (props: RoutenPanelList) => {
                             distance={route.distance}
                             capacity={route.capacity}
                             route_color={route.route_color}
-                            colorBool={route.colorBool}
-                            setColorBool={route.setColorBool} />
+                            setIsOpen={props.setIsOpen}
+                            isOpen={props.isOpen} />
                     })
                 }
             </div>

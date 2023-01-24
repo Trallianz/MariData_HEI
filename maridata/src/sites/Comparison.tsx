@@ -34,28 +34,18 @@ const Comparison = () => {
       shipProp.setOrderedRoutes([
         temp,
         shipProp.orderedRoutes[1],
-        shipProp.orderedRoutes[2],
-        shipProp.orderedRoutes[3]
+        shipProp.orderedRoutes[2]
       ]);
     } else if (props.routeIndex == 1) {
       shipProp.setOrderedRoutes([
         shipProp.orderedRoutes[0],
         temp,
-        shipProp.orderedRoutes[2],
-        shipProp.orderedRoutes[3]
-      ]);
-    } else if (props.routeIndex == 2) {
-      shipProp.setOrderedRoutes([
-        shipProp.orderedRoutes[0],
-        shipProp.orderedRoutes[1],
-        temp,
-        shipProp.orderedRoutes[3]
+        shipProp.orderedRoutes[2]
       ]);
     } else {
       shipProp.setOrderedRoutes([
         shipProp.orderedRoutes[0],
         shipProp.orderedRoutes[1],
-        shipProp.orderedRoutes[2],
         temp
       ]);
     }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./Map.css";
 import RoutenPanelList from "../components/RoutenPanelList";
 import land_botten from "./../icons/land_top.svg";
@@ -8,20 +8,14 @@ import line_map_green from "./../icons/line_map_green.svg";
 import line_map_purple from "./../icons/line_map_purple.svg";
 import line_map_blue from "./../icons/line_map_blue.svg";
 import location from "./../icons/location.svg";
+import { ShipContext } from '../ShipContext';
 
-interface route_list {
-  //TODO find types
-  routen_list: any;
-  list: any;
-  listSetter: any;
-}
+
 
 const Map = () => {
-  
+  const shipProp = useContext(ShipContext);
 
-
-  //hook to pass the route color down to child components so the according route can be hidden
-  const [colorBool, setColorBool] = useState([false, false, false, false]);
+  const[isOpen, setIsOpen] = useState([true, true, true, true]);
 
 
   return (
@@ -29,15 +23,15 @@ const Map = () => {
       <div className='map_map'>
         <img src={land_top} alt="" id='land_top' />
         <img src={land_botten} alt="" id='land_botton' />
-        <img src={line_map_black} alt="" id='line_map_black' />
-        <img src={line_map_green} alt="" id='line_map_green' style={{ opacity: colorBool[1] ? 0 : 1 }} />
-        <img src={line_map_blue} alt="" id='line_map_blue' style={{ opacity: colorBool[2] ? 0 : 1 }} />
-        <img src={line_map_purple} alt="" id='line_map_purple' style={{ opacity: colorBool[3] ? 0 : 1 }} />
+        <img src={line_map_black} alt="" id='line_map_black' style={{ opacity: isOpen[0] ? 1 : 0 }} />
+        <img src={line_map_green} alt="" id='line_map_green' style={{ opacity: isOpen[1] ? 1 : 0 }} />
+        <img src={line_map_blue} alt="" id='line_map_blue' style={{ opacity: isOpen[2] ? 1 : 0 }} />
+        <img src={line_map_purple} alt="" id='line_map_purple' style={{ opacity: isOpen[3] ? 1 : 0 }} />
         <img src={location} alt="" id='location_top' />
         <img src={location} alt="" id='location_botten' />
       </div>
       <div className='map_panel'>
-        <RoutenPanelList colorBool={colorBool} setColorBool={setColorBool} />
+        <RoutenPanelList isOpen={isOpen} setIsOpen={setIsOpen}/>
       </div>
     </div>
   )
