@@ -13,6 +13,7 @@ import speedometer from './../icons/speedometer.svg'
 import cargo_ship from './../icons/cargo_ship.svg'
 import { useContext } from 'react';
 import { ShipContext } from '../ShipContext';
+import TimeCalc from '../components/TimeCalc';
 
 
 
@@ -36,17 +37,17 @@ const Comparison = () => {
       shipProp.setOrderedRoutes(tempArr);
 
     } else if (props.routeIndex == 1) {
-      let tempArr= [...shipProp.orderedRoutes];
+      let tempArr = [...shipProp.orderedRoutes];
       tempArr[1] = temp;
       shipProp.setOrderedRoutes(tempArr);
-      
+
     } else if (props.routeIndex == 2) {
-      let tempArr= [...shipProp.orderedRoutes];
+      let tempArr = [...shipProp.orderedRoutes];
       tempArr[2] = temp;
       shipProp.setOrderedRoutes(tempArr);
-      
+
     } else {
-      let tempArr= [...shipProp.orderedRoutes];
+      let tempArr = [...shipProp.orderedRoutes];
       tempArr[3] = temp;
       shipProp.setOrderedRoutes(tempArr);
     }
@@ -58,85 +59,81 @@ const Comparison = () => {
 
   return (
     <div className='h-full w-full bg-gray1 text-text0'>
-      <Topbar name={"Detailed Comparison"} />
-
+      <Topbar name={"Comparison"} />
       <div className='h-[944px] flex flex-col justify-between p-5'>
-        <div className='divide-y flex flex-col justify-between'>
-          <div className='flex justify-between font-bold  text-4xl'>
-            <div></div>
-            <div></div>
-            <div>Current</div>
-            <div>Suggestion</div>
-            <div>Compared</div>
-            <div></div>
-          </div>
-          <div>
-            <div className='flex w-full items-center justify-between p-3 m-1 bg-gray1'>
-              <div className="flex justify-between w-[131px] text-2xl">
-                <img src={calender} alt='' />
-                <p>Date:</p>
-              </div>
-              <div className='flex w-[60px] justify-end font-bold text-3xl'>{shipProp.currentRoute.date}</div>
-              <div className='flex w-[60px] justify-end font-bold text-3xl'>{props.date}</div>
-              <div className='flex w-[42px] justify-end'></div>
-              <div className='flex justify-end'></div>
-            </div>
-          </div>
-          <div >
-            <ComparisonTable icon={leaf_logo} attribute="Eco-Rating:" cPoints={shipProp.currentRoute.eco_rating} sPoints={props.eco_rating} />
-          </div>
-          <div>
-            <div className='flex my-2 text-2xl'>
-              <img src={time_logo} alt="clock for the time comparison" />
-              <div className=' mx-7'>
-                Time:
-              </div>
-            </div>
-
-            <div>
-              <ComparisonTime icon={ship_d} attribute="driven" cTime={shipProp.currentRoute.time_driven} sTime={props.time_driven} />
-            </div>
-            <div >
-              <ComparisonTime icon={anchor} attribute="anchored" cTime={shipProp.currentRoute.time_anchor} sTime={props.time_anchor} />
-            </div>
-          </div>
-          <div>
-            <ComparisonTable icon={speedometer} attribute="Avg. Speed:" cPoints={shipProp.currentRoute.speed} sPoints={props.speed} />
-          </div>
-          <div>
-            <div className='flex w-full items-center justify-between p-3 m-1 bg-gray1'>
-              <div className="flex justify-between w-[131px] text-2xl">
-                <img src={cargo_ship} alt='the ship icon of ship type comparison' />
-                <p>Ship Type:</p>
-              </div>
-              <div className='flex w-[60px] justify-end font-bold text-3xl'>{shipProp.currentRoute.ship_type}</div>
-              <div className='flex w-[60px] justify-end font-bold text-3xl'>{props.ship_type}</div>
-              <div className='flex w-[42px] justify-end'></div>
-              <div className='flex justify-end'></div>
+        <div className=''>
+          <table className=' table-auto w-full divide-y'>
+            <thead className=' font-bold text-4xl'>
+              <tr>
+                <th></th>
+                <th>Current</th>
+                <th>Suggestion</th>
+                <th>Compared</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className=' h-20'>
+                <td className='flex flex-row'><img src={calender} alt='calender icon' /> <p className='mx-7 text-2xl'>Date:</p> </td>
+                <td><div className='font-bold text-2xl'>{shipProp.currentRoute.date}</div></td>
+                <td><div className='font-bold text-2xl'>{props.date}</div></td>
+                <td></td>
+                <hr />
+              </tr>
+              <tr className=' h-20'>
+                <td className='flex'><img src={leaf_logo} alt='eco leaf icon' /><p className='mx-7 text-2xl'>Eco-Rateing:</p></td>
+                <td><div className='font-bold text-2xl'>{shipProp.currentRoute.eco_rating}</div></td>
+                <td><div className='font-bold text-2xl'>{props.eco_rating}</div></td>
+                <td><ComparisonTable cPoints={shipProp.currentRoute.eco_rating} sPoints={props.eco_rating} /></td>
+              </tr>
+              <tr className=' h-20'>
+                <td className='flex'><img src={time_logo} alt="clock" /><p className='mx-7 text-2xl'>Time:</p></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr className=' h-20'>
+                <td className='flex mx-5'><img src={ship_d} alt="driving ship" /><p className=' mx-9 text-2xl'>Driven:</p></td>
+                <td><div className='font-bold text-2xl'>{TimeCalc(shipProp.currentRoute.time_driven)}</div></td>
+                <td><div className='font-bold text-2xl'>{TimeCalc(props.time_driven)}</div></td>
+                <td><ComparisonTime cTime={shipProp.currentRoute.time_driven} sTime={props.time_driven} /></td>
+              </tr>
+              <tr className=' h-20'>
+                <td className='flex mx-5'><img src={anchor} alt="anchor icon" /><p className=' mx-9 text-2xl'>Anchored:</p></td>
+                <td><div className='font-bold text-2xl'>{TimeCalc(shipProp.currentRoute.time_anchor)}</div></td>
+                <td><div className='font-bold text-2xl'>{TimeCalc(props.time_anchor)}</div></td>
+                <td><ComparisonTime cTime={shipProp.currentRoute.time_anchor} sTime={props.time_anchor} /></td>
+              </tr>
+              <tr className=' h-20'>
+                <td className='flex'><img src={speedometer} alt='' /><p className='mx-7 text-2xl'>Avg. Speed:</p></td>
+                <td><div className='font-bold text-2xl'>{shipProp.currentRoute.speed}</div></td>
+                <td><div className='font-bold text-2xl'>{props.speed}</div></td>
+                <td><ComparisonTable cPoints={shipProp.currentRoute.speed} sPoints={props.speed} /></td>
+              </tr>
+              <tr className=' h-20'>
+                <td className='flex'><img src={cargo_ship} alt='the ship icon of ship type comparison' /><p className='mx-7 text-2xl'>Ship Type:</p> </td>
+                <td><div className='font-bold text-2xl'>{shipProp.currentRoute.ship_type}</div></td>
+                <td><div className='font-bold text-2xl'>{props.ship_type}</div></td>
+              </tr>
+            </tbody>
+          </table >
+        </div>
+        <div>
+          <div className='flex justify-between'>
+            <button onClick={() => navigate("/breakdown", { state: { props } })} className='btn'>
+              Details
+            </button>
+            <div className='flex'>
+              <button onClick={() => navigate('/')} className="btn mx-9">
+                Cancel
+              </button>
+              <button onClick={() => changeRoute()} className="btn">
+                Navigate
+              </button>
             </div>
           </div>
         </div>
-        <div className='flex justify-between'>
-          <button onClick={() => navigate("/breakdown", { state: { props } })} className='btn'>
-            to breakdown
-          </button>
-          <div className='flex'>
-            <button onClick={() => navigate('/')} className="btn mx-9">
-              Cancel
-            </button>
-            <button onClick={() => changeRoute()} className="btn">
-              Navigate
-            </button>
-          </div>
-
-        </div>
-
-
-
       </div>
-
     </div>
-
   )
 }
 

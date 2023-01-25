@@ -1,7 +1,12 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
-<svg fill="#BCC9CF" height="64px" width="64px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.00 512.00" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512" stroke="#BCC9CF">
-<g id="SVGRepo_bgCarrier" stroke-width="0"/>
-<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-<g id="SVGRepo_iconCarrier"> <path d="M496,288h-17v-96c0-8.836-6.164-16-15-16H240.001c-8.836,0-17.001,7.164-17.001,16v96h-32V144c0-8.836-6.163-16-14.999-16 H143V80c0-8.836-7.164-16-16-16s-16,7.164-16,16v48H96.001C87.165,128,79,135.164,79,144v48H48.001C39.165,192,31,199.164,31,208v80 H16.001c-5.313,0-10.273,2.633-13.25,7.031c-2.977,4.398-3.578,9.984-1.609,14.914l29.828,74.555l-14.148,42.437 c-1.625,4.883-0.805,10.243,2.203,14.414c3.008,4.18,7.836,6.649,12.977,6.649H368c79.398,0,144-64.602,144-144 C512,295.164,504.836,288,496,288z M255,208h192v80h-48v-48h16v-16h-32v64h-32v-48h16v-16h-32v64h-32v-48h16v-16h-32v64h-32V208z M63,224h33.001c8.836,0,14.999-7.164,14.999-16v-48h48v128H63V224z M368,416H54.197l8.984-26.938 c1.195-3.594,1.078-7.492-0.32-11.008L39.634,320h8.367h128h64H464h14.859C471.07,374,424.328,416,368,416z"/> </g>
-</svg>
+
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+<svg fill="#BCC9CF" height="48px" width="48px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.00 512.00" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512" stroke="#BCC9CF">
+
+<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+
+<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+
+<g id="SVGRepo_iconCarrier"> <path d="M496,288h-17v-96c0-8.836-6.164-16-15-16H240.001c-8.836,0-17.001,7.164-17.001,16v96h-32V144c0-8.836-6.163-16-14.999-16 H143V80c0-8.836-7.164-16-16-16s-16,7.164-16,16v48H96.001C87.165,128,79,135.164,79,144v48H48.001C39.165,192,31,199.164,31,208v80 H16.001c-5.313,0-10.273,2.633-13.25,7.031c-2.977,4.398-3.578,9.984-1.609,14.914l29.828,74.555l-14.148,42.437 c-1.625,4.883-0.805,10.243,2.203,14.414c3.008,4.18,7.836,6.649,12.977,6.649H368c79.398,0,144-64.602,144-144 C512,295.164,504.836,288,496,288z M255,208h192v80h-48v-48h16v-16h-32v64h-32v-48h16v-16h-32v64h-32v-48h16v-16h-32v64h-32V208z M63,224h33.001c8.836,0,14.999-7.164,14.999-16v-48h48v128H63V224z M368,416H54.197l8.984-26.938 c1.195-3.594,1.078-7.492-0.32-11.008L39.634,320h8.367h128h64H464h14.859C471.07,374,424.328,416,368,416z"/> </g>
+
+</svg>
