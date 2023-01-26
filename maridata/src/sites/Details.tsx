@@ -4,6 +4,10 @@ import StandardButton from '../components/StandardButton';
 import EcoRatingTableItem from '../components/EcoRatingTableItem';
 import { useLocation, useNavigate } from "react-router-dom";
 import Leaf from "./../icons/Leaf.svg"
+import Fire from "./../icons/fire-svgrepo-com.svg"
+import CO2 from "./../icons/co2-svgrepo-com.svg"
+import Distance from "./../icons/distance-svgrepo-com.svg"
+import Capacity from "./../icons/capacity-svgrepo-com.svg"
 import { useContext } from 'react';
 import { ShipContext } from '../ShipContext';
 
@@ -52,10 +56,10 @@ const Details = () => {
             </div>
             <div className='flex flex-col items-center'>
               <EcoRatingTableItem icon={Leaf} attribute="Eco-Rating" cPoints={shipProp.currentRoute.eco_rating} sPoints={props.eco_rating} />
-              <EcoRatingTableItem icon={Leaf} attribute="Fuel Consumption" cPoints={shipProp.currentRoute.fuel_consumption} sPoints={props.fuel_consumption} />
-              <EcoRatingTableItem icon={Leaf} attribute="CO2 Factor" cPoints={shipProp.currentRoute.co2_factor} sPoints={props.co2_factor} />
-              <EcoRatingTableItem icon={Leaf} attribute="Distance" cPoints={shipProp.currentRoute.distance} sPoints={props.distance} />
-              <EcoRatingTableItem icon={Leaf} attribute="Capacity" cPoints={shipProp.currentRoute.capacity} sPoints={props.capacity} />
+              <EcoRatingTableItem icon={Fire} attribute="Fuel Consumption" cPoints={shipProp.currentRoute.fuel_consumption} sPoints={props.fuel_consumption} />
+              <EcoRatingTableItem icon={CO2} attribute="CO2 Factor" cPoints={shipProp.currentRoute.co2_factor} sPoints={props.co2_factor} />
+              <EcoRatingTableItem icon={Distance} attribute="Distance" cPoints={shipProp.currentRoute.distance} sPoints={props.distance} />
+              <EcoRatingTableItem icon={Capacity} attribute="Capacity" cPoints={shipProp.currentRoute.capacity} sPoints={props.capacity} />
             </div>
           </div>
           <div onClick={() => { alert('The Eco-Score is dark magic.') }}>

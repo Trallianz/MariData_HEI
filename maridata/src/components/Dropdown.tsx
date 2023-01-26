@@ -46,7 +46,6 @@ const Dropdown = ({ setDropdownSelect, setIsMenuVisible }: DropdownProps) => {
         while (somethingChanged) {
             somethingChanged = false;
             for (let i = 0; i < tempOrderedRoutes.length - 1; i++) {
-                let xTemp: any;
 
                 if (tempArr[i] < tempArr[i + 1]) {
                     somethingChanged = true;
