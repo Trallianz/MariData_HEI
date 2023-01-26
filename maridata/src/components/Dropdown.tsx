@@ -50,13 +50,9 @@ const Dropdown = ({ setDropdownSelect, setIsMenuVisible }: DropdownProps) => {
 
                 if (tempArr[i] < tempArr[i + 1]) {
                     somethingChanged = true;
-
-                    xTemp = tempArr[i];
-                    tempArr[i] = tempArr[i + 1];
-                    tempArr[i + 1] = xTemp;
-                    xTemp = tempOrderedRoutes[i];
-                    tempOrderedRoutes[i] = tempOrderedRoutes[i + 1];
-                    tempOrderedRoutes[i + 1] = xTemp;
+                    //swap values
+                    [tempArr[i], tempArr[i + 1]] = [tempArr[i + 1], tempArr[i]];
+                    [tempOrderedRoutes[i], tempOrderedRoutes[i + 1]] = [tempOrderedRoutes[i + 1], tempOrderedRoutes[i]];
                 }
             }
         }
