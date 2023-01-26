@@ -13,6 +13,7 @@
     display: flex;
     flex-direction: row;
     padding-bottom: 1em;
+    justify-content: space-between;
 }
 
 .routen_panel_div1 p{
@@ -30,18 +31,16 @@
     padding-bottom: 10px;
     
 }
+
 .routen_panel_hide{
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
+    padding-right: 10px;
 }
 
-.routen_panel_hide > img{
-    position: relative;
-    left: 130px
-    
-}
+
 
 .routen_panel_div2_grouped{
     
@@ -54,7 +53,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 }
+
 
 .routen_panel_div2_1{
     display: flex;
@@ -78,7 +79,7 @@
     display: flex;
     flex-direction: row;
     padding-bottom: 1em;
-    align-items: center;
+    align-items:center;
 }
 
 .routen_panel_eco_rating{
@@ -123,7 +124,7 @@
 }
 
 .routen_divider{
-    width: 60px;
+    max-width: 60px;
 }
 
 .routen_panel_time_image > img{

@@ -190,9 +190,7 @@ const RoutePanel = (props: any) => {
                         </div>
                     </div>
                 </div>
-                <div className='routen_divider'>
-
-                </div>
+                
                 <div className='routen_panel_arrow'>
                     <img src={arrow_grey} alt="a arrow navigating the uzser to the detailed comparison" onClick={() => handleClickAction()} />
                 </div>
