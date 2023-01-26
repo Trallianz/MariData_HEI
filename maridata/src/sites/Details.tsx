@@ -7,7 +7,7 @@ import Leaf from "./../icons/Leaf.svg"
 import { useContext } from 'react';
 import { ShipContext } from '../ShipContext';
 
-const Breakdown = () => {
+const Details = () => {
 
 
   const shipProp = useContext(ShipContext); 
@@ -67,4 +67,4 @@ const Breakdown = () => {
   )
 }
 
-export default Breakdown
+export default Details
