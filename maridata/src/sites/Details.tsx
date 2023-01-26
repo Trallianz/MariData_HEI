@@ -18,7 +18,7 @@ const Breakdown = () => {
 
   return (
     <div className='h-full w-full bg-gray1 text-text0'>
-      <Topbar name={"Breakdown"} />
+      <Topbar name={"Eco-Rating Details"} />
       <div className='h-[944px] flex justify-between p-8'>
         <div>
           <button onClick={() => navigate("/comparison", { state: { props } })}>
