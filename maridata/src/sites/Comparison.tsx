@@ -80,7 +80,7 @@ const Comparison = () => {
                 <hr />
               </tr>
               <tr className=' h-20'>
-                <td className='flex'><img src={leaf_logo} alt='eco leaf icon' /><p className='mx-7 text-2xl'>Eco-Rateing:</p></td>
+                <td className='flex'><img src={leaf_logo} alt='eco leaf icon' /><p className='mx-7 text-2xl'>Eco-Rating:</p></td>
                 <td><div className='font-bold text-2xl'>{shipProp.currentRoute.eco_rating}</div></td>
                 <td><div className='font-bold text-2xl'>{props.eco_rating}</div></td>
                 <td><ComparisonTable cPoints={shipProp.currentRoute.eco_rating} sPoints={props.eco_rating} /></td>
@@ -119,8 +119,8 @@ const Comparison = () => {
         </div>
         <div>
           <div className='flex justify-between'>
-            <button onClick={() => navigate("/breakdown", { state: { props } })} className='btn'>
-              Details
+            <button onClick={() => navigate("/details", { state: { props } })} className='btn'>
+              Eco-Rating Details
             </button>
             <div className='flex'>
               <button onClick={() => navigate('/')} className="btn mx-9">

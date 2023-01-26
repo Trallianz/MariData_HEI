@@ -7,7 +7,7 @@ import Leaf from "./../icons/Leaf.svg"
 import { useContext } from 'react';
 import { ShipContext } from '../ShipContext';
 
-const Breakdown = () => {
+const Details = () => {
 
 
   const shipProp = useContext(ShipContext); 
@@ -18,7 +18,7 @@ const Breakdown = () => {
 
   return (
     <div className='h-full w-full bg-gray1 text-text0'>
-      <Topbar name={"Breakdown"} />
+      <Topbar name={"Eco-Rating Details"} />
       <div className='h-[944px] flex justify-between p-8'>
         <div>
           <button onClick={() => navigate("/comparison", { state: { props } })}>
@@ -67,4 +67,4 @@ const Breakdown = () => {
   )
 }
 
-export default Breakdown
+export default Details
