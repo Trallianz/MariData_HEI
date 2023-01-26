@@ -15,6 +15,9 @@ import line_blue from "./../icons/line_blue.svg";
 import { useNavigate } from "react-router-dom";
 import TimeCalc from './TimeCalc';
 import { ShipContext } from '../ShipContext';
+import red_triangle from "./../icons/arrow_down_red.svg";
+import gray_triangel from "./../icons/arrow_grey.svg";
+import green_triangle from "./../icons/arrow_up_green.svg";
 
 interface route_props2 {
     isOpen: Array<boolean>;
@@ -29,6 +32,7 @@ const RoutePanel = (props: any) => {
 
     // function that is called when clicked on the eye-icon
     const handleEyeAction = () => {
+        console.log(shipProp.currentRoute);
         let temp = shipProp.orderedRoutes;
         temp[props.routeIndex].shown_on_map = !temp[props.routeIndex].shown_on_map;
         shipProp.setOrderedRoutes(temp);
@@ -47,6 +51,56 @@ const RoutePanel = (props: any) => {
         setEyeOpen(!eyeOpen)
     }
 
+
+    //calculate diferences
+
+    let triangle = gray_triangel;
+
+    function showTriangleEco(c: number, s: number) {
+        const sum = c - s
+        if (sum > 0) {
+            triangle = red_triangle
+            return (triangle)
+        }
+        else {
+            triangle = green_triangle
+            return (triangle)
+        }
+    }
+
+    function getDifferenceEco(x: number, y: number) {
+        //example "-60%"
+        if (x >= y) {
+            return (Math.round(((y / x) * 100) - 100) + "%");
+        }
+        //example "+60%"
+        else {
+            return ("+" + Math.round(((y / x) * 100) - 100) + "%");
+        }
+    }
+
+    function showTriangleTime(c: number, s: number) {
+        const sum = c - s
+        if (sum < 0) {
+            triangle = red_triangle
+            return (triangle)
+        }
+        else {
+            triangle = green_triangle
+            return (triangle)
+        }
+    }
+
+    function getDifferenceTime(x: number, y: number) {
+        //example "-60%"
+        if (x >= y) {
+            return (Math.round(((y / x) * 100) - 100) + "%");
+        }
+        //example "+60%"
+        else {
+            return ("+" + Math.round(((y / x) * 100) - 100) + "%");
+        }
+    }
 
     //passes the route data (props) to the detailed comparison site
     const navigate = useNavigate();
@@ -113,7 +167,10 @@ const RoutePanel = (props: any) => {
                             <p>Eco Rating:</p>
                             <div className='routen_panel_eco_rating_value'>
                                 <p className='eco_rating'>{props.eco_rating}</p>
-                                <p className='eco_difference'>+1,5</p>
+                                <div className='eco_rating_comparison'>
+                                    <img src={showTriangleEco(shipProp.currentRoute.eco_rating, props.eco_rating)} alt="" />
+                                    {getDifferenceEco(shipProp.currentRoute.eco_rating, props.eco_rating)}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -125,7 +182,10 @@ const RoutePanel = (props: any) => {
                             <p>Time:</p>
                             <div className='routen_panel_eco_rating_value'>
                                 <p className='time'>{TimeCalc(props.time_driven + props.time_anchor)}</p>
-                                <p className='time_difference'>+38min</p>
+                                <div className='time_comparison'>
+                                    <img src={showTriangleEco((shipProp.currentRoute.time_driven + shipProp.currentRoute.time_anchor), (props.time_driven + props.time_anchor))} alt="" />
+                                    {getDifferenceEco((shipProp.currentRoute.time_driven + shipProp.currentRoute.time_anchor), (props.time_driven + props.time_anchor))}
+                                </div>
                             </div>
                         </div>
                     </div>
