@@ -10,11 +10,12 @@ import Distance from "./../icons/distance-svgrepo-com.svg"
 import Capacity from "./../icons/capacity-svgrepo-com.svg"
 import { useContext } from 'react';
 import { ShipContext } from '../ShipContext';
+import RouteLine from '../components/RouteLine';
+
 
 const Details = () => {
 
-
-  const shipProp = useContext(ShipContext); 
+  const shipProp = useContext(ShipContext);
 
   const navigate = useNavigate();
   const { state } = useLocation();
@@ -36,22 +37,24 @@ const Details = () => {
             c_co2={shipProp.currentRoute.co2_factor}
             c_distance={shipProp.currentRoute.distance}
             c_capacity={shipProp.currentRoute.capacity}
+            c_color={shipProp.currentRoute.route_color}
             s_eco={props.eco_rating}
             s_fuel={props.fuel_consumption}
             s_co2={props.co2_factor}
             s_distance={props.distance}
-            s_capacity={props.capacity} />
+            s_capacity={props.capacity}
+            s_color={props.route_color} />
         </div>
         <div className='h-full flex flex-col justify-between items-end'>
           <div className='bg-gray0 w-[500px] p-3 rounded-lg'>
             <div className='flex'>
               <div className='p-2 pl-52'>
                 <div className='font-bold text-xl'>Current</div>
-                <div className='h-[4px] border-dashed border-black border-2'></div>
+                <RouteLine color={shipProp.currentRoute.route_color}/>
               </div>
               <div className='p-2'>
                 <div className='font-bold text-xl'>Suggestion</div>
-                <div className='h-[4px] border-dashed border-blue-600 border-2'></div>
+                <RouteLine color={props.route_color}/>
               </div>
             </div>
             <div className='flex flex-col items-center'>
