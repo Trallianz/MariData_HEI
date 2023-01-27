@@ -1,10 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './RoutenPanel.css';
-import { routen_props } from "./../components/Route";
 import ecoscore_logo from "./../icons/Leaf.svg";
 import time_logo from "./../icons/Time.svg";
-import arrow_up_green from "./../icons/arrow_up_green.svg";
-import arrow_down_red from "./../icons/arrow_down_red.svg";
 import arrow_grey from "./../icons/arrow_grey.svg";
 import eye_closed from "./../icons/eye_closed.svg";
 import eye_open from "./../icons/eye_open.svg";
@@ -32,7 +29,6 @@ const RoutePanel = (props: any) => {
 
     // function that is called when clicked on the eye-icon
     const handleEyeAction = () => {
-        console.log(shipProp.currentRoute);
         let temp = shipProp.orderedRoutes;
         temp[props.routeIndex].shown_on_map = !temp[props.routeIndex].shown_on_map;
         shipProp.setOrderedRoutes(temp);
