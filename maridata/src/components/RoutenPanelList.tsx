@@ -26,16 +26,11 @@ const RoutenPanelList = (props: route_props2) => {
         <div className='route_panel_list_routes'>
             <div className='route_panel_'>
                 <p>Historical Routes</p>
-                <div className='route_panel_divider'>
+                <button className={isMenuVisible ? 'bg-gray1 w-[130px] rounded-md absolute left-[352px] font-bold' : 'bg-gray2 w-[130px] rounded-md absolute left-[352px] font-bold'} onClick={() => setIsMenuVisible(!isMenuVisible)}>
+                    <div className='py-1'>{dropdownSelect}</div>
+                    {isMenuVisible && <Dropdown setDropdownSelect={setDropdownSelect} setIsMenuVisible={setIsMenuVisible} />}
+                </button>
 
-                </div>
-                <div className='route_panel_dropdown'>
-                    <button onClick={() => setIsMenuVisible(!isMenuVisible)}>
-                        {dropdownSelect}
-                        {isMenuVisible && <Dropdown setDropdownSelect={setDropdownSelect} setIsMenuVisible={setIsMenuVisible} />}
-                    </button>
-                </div>
-                
             </div>
             <div className='current_route_div'>
                 <CurrentRoute />

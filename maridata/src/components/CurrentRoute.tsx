@@ -8,6 +8,7 @@ import line_purple from "./../icons/line_purple.svg";
 import line_blue from "./../icons/line_blue.svg";
 import TimeCalc from './TimeCalc';
 import { ShipContext } from '../ShipContext';
+import RouteLine from './RouteLine';
 
 const CurrentRoute = () => {
 
@@ -37,7 +38,10 @@ const CurrentRoute = () => {
         <div className='current_route'>
             <div className='current_route_name_and_line'>
                 <div>current Route</div>
-                <img src={color} alt="open eye or closed eye, deping on if the route is visible" className='current_route_line' />
+                <div className='pt-2 pb-8 w-48'>
+                    <RouteLine color={shipProp.currentRoute.route_color} />
+                </div>
+
             </div>
             <div className='current_route_eco_and_time'>
                 <div className='current_route_eco'>

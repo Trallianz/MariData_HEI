@@ -18,17 +18,6 @@
     
 }
 
-.route_panel_dropdown > button{ 
-    display: flex;
-    flex-direction: column;
-    align-items: center;  
-    min-height: 50px;
-    min-width: 130px;
-    position: absolute;
-    top: 1em;
-    left: 290px;
-    
-}
 
 
 .route_panel_dropdown:focus{
