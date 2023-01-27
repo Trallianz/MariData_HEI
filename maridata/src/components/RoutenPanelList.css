@@ -8,31 +8,31 @@
     
 }
 
-.route_panel_dropdown{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 150px;
-    min-height: 50px;
-    position: absolute;
-    top: 1em;
-    left: 280px;
+.route_panel_ > p {
+    font-weight: 600;
+    padding-left: 2px;
 }
 
-.divider2{
+.route_panel_dropdown{
+    background-color: blue;
     
 }
-.route_panel_dropdown > button{
-    font-size: 20px;
-    font-weight: 450;
-    padding-bottom: 4px;
-    width: 110px;
-    height: 30px;
+
+.route_panel_dropdown > button{ 
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    background-color: var(--color-gray-2);
+    flex-direction: column;
+    align-items: center;  
+    min-height: 50px;
+    min-width: 130px;
+    position: absolute;
+    top: 1em;
+    left: 290px;
+    
+}
+
+
+.route_panel_dropdown:focus{
+    background-color: red;
 }
 
 .route_panel_dropdown > button:focus{

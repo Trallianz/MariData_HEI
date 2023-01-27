@@ -29,11 +29,13 @@ const RoutenPanelList = (props: route_props2) => {
                 <div className='route_panel_divider'>
 
                 </div>
-                <button className='route_panel_dropdown' onClick={() => setIsMenuVisible(!isMenuVisible)}>
-                    <div className='divider2'></div>
-                    {dropdownSelect}
-                    {isMenuVisible && <Dropdown setDropdownSelect={setDropdownSelect} setIsMenuVisible={setIsMenuVisible} />}
-                </button>
+                <div className='route_panel_dropdown'>
+                    <button onClick={() => setIsMenuVisible(!isMenuVisible)}>
+                        {dropdownSelect}
+                        {isMenuVisible && <Dropdown setDropdownSelect={setDropdownSelect} setIsMenuVisible={setIsMenuVisible} />}
+                    </button>
+                </div>
+                
             </div>
             <div className='current_route_div'>
                 <CurrentRoute />
