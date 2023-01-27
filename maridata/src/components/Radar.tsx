@@ -1,5 +1,7 @@
+import { useContext } from 'react';
 import RadarChart from 'react-svg-radar-chart';
 import 'react-svg-radar-chart/build/css/index.css'
+import { ShipContext } from '../ShipContext';
 
 /*
 Link zum Radar:
@@ -23,6 +25,8 @@ interface tableElements {
 
 const Radar = ({ c_eco, c_fuel, c_co2, c_distance, c_capacity, c_color, s_eco, s_fuel, s_co2, s_distance, s_capacity, s_color }: tableElements) => {
 
+  const shipProp = useContext(ShipContext);
+
   const captions = {
     ecoRating: 'Eco-Rating',
     fuelConsumption: 'Fuel Consumption',
@@ -39,15 +43,54 @@ const Radar = ({ c_eco, c_fuel, c_co2, c_distance, c_capacity, c_color, s_eco, s
     else return ("Error in Radar.tsx (unknown color)")
   }
 
+  //returns the biggest known element of an attribute 
+  function getBiggestElement(x: string) {
+    let highest: number = 0;
+
+    if (x == "fuelConsumption") {
+      highest = shipProp.currentRoute.fuel_consumption;
+      for (let i = 0; i < shipProp.orderedRoutes.length; i++) {
+        if (shipProp.orderedRoutes[i].fuel_consumption > highest) {
+          highest = shipProp.orderedRoutes[i].fuel_consumption;
+        }
+      }
+    }
+    else if (x == "co2Factor") {
+      highest = shipProp.currentRoute.co2_factor;
+      for (let i = 0; i < shipProp.orderedRoutes.length; i++) {
+        if (shipProp.orderedRoutes[i].co2_factor > highest) {
+          highest = shipProp.orderedRoutes[i].co2_factor;
+        }
+      }
+    }
+    else if (x == "distance") {
+      highest = shipProp.currentRoute.distance;
+      for (let i = 0; i < shipProp.orderedRoutes.length; i++) {
+        if (shipProp.orderedRoutes[i].distance > highest) {
+          highest = shipProp.orderedRoutes[i].distance;
+        }
+      }
+    }
+    else if (x == "capacity") {
+      highest = shipProp.currentRoute.capacity;
+      for (let i = 0; i < shipProp.orderedRoutes.length; i++) {
+        if (shipProp.orderedRoutes[i].capacity > highest) {
+          highest = shipProp.orderedRoutes[i].capacity;
+        }
+      }
+    }
+    return highest;
+  }
+
   const data = [
     {
       //the data of the current route
       data: {
         ecoRating: c_eco / 10,
-        fuelConsumption: c_fuel / 10,
-        co2Factor: c_co2 / 10,
-        distance: c_distance / 10,
-        capacity: c_capacity / 10
+        fuelConsumption: c_fuel / getBiggestElement("fuelConsumption"),
+        co2Factor: c_co2 / getBiggestElement("co2Factor"),
+        distance: c_distance / getBiggestElement("distance"),
+        capacity: c_capacity / getBiggestElement("capacity")
       },
       meta: { color: colorAsCode(c_color) }
     },
@@ -55,10 +98,10 @@ const Radar = ({ c_eco, c_fuel, c_co2, c_distance, c_capacity, c_color, s_eco, s
       //the data of the suggested routed
       data: {
         ecoRating: s_eco / 10,
-        fuelConsumption: s_fuel / 10,
-        co2Factor: s_co2 / 10,
-        distance: s_distance / 10,
-        capacity: s_capacity / 10
+        fuelConsumption: s_fuel / getBiggestElement("fuelConsumption"),
+        co2Factor: s_co2 / getBiggestElement("co2Factor"),
+        distance: s_distance / getBiggestElement("distance"),
+        capacity: s_capacity / getBiggestElement("capacity")
       },
       meta: { color: colorAsCode(s_color) }
     },
