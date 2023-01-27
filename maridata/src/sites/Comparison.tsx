@@ -14,6 +14,7 @@ import cargo_ship from './../icons/cargo_ship.svg'
 import { useContext } from 'react';
 import { ShipContext } from '../ShipContext';
 import TimeCalc from '../components/TimeCalc';
+import RouteLine from '../components/RouteLine';
 
 
 
@@ -66,8 +67,18 @@ const Comparison = () => {
             <thead className=' font-bold text-4xl h-20 border-b border-gray2 text-justify'>
               <tr>
                 <th></th>
-                <th>Current</th>
-                <th>Suggestion</th>
+                <th>
+                  <div>
+                    <div>Current</div>
+                    <div className='w-[130px]'><RouteLine color={shipProp.currentRoute.route_color} /></div>
+                  </div>
+                </th>
+                <th>
+                  <div>
+                    <div>Suggestion</div>
+                    <div className='w-[185px]'><RouteLine color={props.route_color} /></div>
+                  </div>
+                </th>
                 <th>Compared</th>
               </tr>
             </thead>

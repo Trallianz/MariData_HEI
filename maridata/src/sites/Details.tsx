@@ -59,11 +59,11 @@ const Details = () => {
               <tr className='border-b-4 border-gray1'>
                 <th />
                 <th className='p-4'>
-                  <div>Current</div>
+                  <div className='pb-1'>Current</div>
                   <RouteLine color={shipProp.currentRoute.route_color} />
                 </th>
                 <th className='p-4'>
-                  <div>Suggestion</div>
+                  <div className='pb-1'>Suggestion</div>
                   <RouteLine color={props.route_color} />
                 </th>
                 <th />
