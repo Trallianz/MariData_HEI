@@ -54,69 +54,109 @@ const Details = () => {
             s_color={props.route_color} />
         </div>
         <div className='h-full flex flex-col justify-between items-end'>
-            <table className='border-separate border-spacing-4'>
-              <thead>
-                <tr className=''>
-                  <th />
-                  <th>
-                    <div className='font-bold text-xl'>Current</div>
-                    <RouteLine color={shipProp.currentRoute.route_color} />
-                  </th>
-                  <th>
-                    <div className='font-bold text-xl'>Suggestion</div>
-                    <RouteLine color={props.route_color} />
-                  </th>
-                  <th />
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <img src={Leaf} />
-                    Eco-Rating
-                  </td>
-                  <td>{shipProp.currentRoute.eco_rating.toFixed(1)}</td>
-                  <td>{props.eco_rating.toFixed(1)}</td>
-                  <td className='text-end'>{getDifference(shipProp.currentRoute.eco_rating, props.eco_rating)}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <img src={Fire} />
-                    Fuel Consumption
-                  </td>
-                  <td>{shipProp.currentRoute.fuel_consumption} gal</td>
-                  <td>{props.fuel_consumption} gal</td>
-                  <td className='text-end'>{getDifference(shipProp.currentRoute.fuel_consumption, props.fuel_consumption)}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <img src={CO2} />
-                    CO2 Factor
-                  </td>
-                  <td>{shipProp.currentRoute.co2_factor} g/ton</td>
-                  <td>{props.co2_factor} g/ton</td>
-                  <td className='text-end'>{getDifference(shipProp.currentRoute.co2_factor, props.co2_factor)}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <img src={Distance} />
-                    Distance
-                  </td>
-                  <td>{shipProp.currentRoute.distance} km</td>
-                  <td>{props.distance} km</td>
-                  <td className='text-end'>{getDifference(shipProp.currentRoute.distance, props.distance)}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <img src={Capacity} />
-                    Capacity
-                  </td>
-                  <td>{shipProp.currentRoute.capacity} tons</td>
-                  <td>{props.capacity} tons</td>
-                  <td className='text-end'>{getDifference(shipProp.currentRoute.capacity, props.capacity)}</td>
-                </tr>
-              </tbody>
-            </table>
+          <table className='bg-gray0 rounded-xl'>
+            <thead className='text-2xl'>
+              <tr className='border-b-4 border-gray1'>
+                <th />
+                <th className='p-4'>
+                  <div>Current</div>
+                  <RouteLine color={shipProp.currentRoute.route_color} />
+                </th>
+                <th className='p-4'>
+                  <div>Suggestion</div>
+                  <RouteLine color={props.route_color} />
+                </th>
+                <th />
+              </tr>
+            </thead>
+            <tbody>
+              <tr className='border-b-2 border-gray1'>
+                <td className='p-4'>
+                  <img src={Leaf} />
+                  Eco-Rating
+                </td>
+                <td className='p-4 text-4xl'>{shipProp.currentRoute.eco_rating.toFixed(1)}</td>
+                <td className='p-4 text-4xl'>{props.eco_rating.toFixed(1)}</td>
+                <td className='p-4 text-end'>{getDifference(shipProp.currentRoute.eco_rating, props.eco_rating)}</td>
+              </tr>
+              <tr className='border-b-2 border-gray1'>
+                <td className='p-4'>
+                  <img src={Fire} />
+                  Fuel Consumption
+                </td>
+                <td className='p-4'>
+                  <div className='flex items-end'>
+                    <div className='text-2xl pr-1'>{shipProp.currentRoute.fuel_consumption}</div>
+                    <div>gal</div>
+                  </div>
+                </td>
+                <td className='p-4'>
+                  <div className='flex items-end'>
+                    <div className='text-2xl pr-1'>{props.fuel_consumption}</div>
+                    <div>gal</div>
+                  </div>
+                </td>
+                <td className='p-4 text-end'>{getDifference(shipProp.currentRoute.fuel_consumption, props.fuel_consumption)}</td>
+              </tr>
+              <tr className='border-b-2 border-gray1'>
+                <td className='p-4'>
+                  <img src={CO2} />
+                  CO2 Factor
+                </td>
+                <td className='p-4'>
+                  <div className='flex items-end'>
+                    <div className='text-2xl pr-1'>{shipProp.currentRoute.co2_factor}</div>
+                    <div>g/ton</div>
+                  </div>
+                </td>
+                <td className='p-4'>
+                  <div className='flex items-end'>
+                    <div className='text-2xl pr-1'>{props.co2_factor}</div>
+                    <div>g/ton</div>
+                  </div>
+                </td>
+                <td className='p-4 text-end'>{getDifference(shipProp.currentRoute.co2_factor, props.co2_factor)}</td>
+              </tr>
+              <tr className='border-b-2 border-gray1'>
+                <td className='p-4'>
+                  <img src={Distance} />
+                  Distance
+                </td>
+                <td className='p-4'>
+                  <div className='flex items-end'>
+                    <div className='text-2xl pr-1'>{shipProp.currentRoute.distance}</div>
+                    <div>km</div>
+                  </div>
+                </td>
+                <td className='p-4'>
+                  <div className='flex items-end'>
+                    <div className='text-2xl pr-1'>{props.distance}</div>
+                    <div>km</div>
+                  </div>
+                </td>
+                <td className='p-4 text-end'>{getDifference(shipProp.currentRoute.distance, props.distance)}</td>
+              </tr>
+              <tr>
+                <td className='p-4'>
+                  <img src={Capacity} />
+                  Capacity
+                </td>
+                <td className='p-4'>
+                  <div className='flex items-end'>
+                    <div className='text-2xl pr-1'>{shipProp.currentRoute.capacity}</div>
+                    <div>tons</div>
+                  </div>
+                </td>
+                <td className='p-4'>
+                  <div className='flex items-end'>
+                    <div className='text-2xl pr-1'>{props.capacity}</div>
+                    <div>tons</div>
+                  </div>
+                </td>
+                <td className='p-4 text-end'>{getDifference(shipProp.currentRoute.capacity, props.capacity)}</td>
+              </tr>
+            </tbody>
+          </table>
           {/* <div className='bg-gray0 w-[500px] p-3 rounded-lg'>
             <div className='flex'>
               <div className='p-2 pl-52'>

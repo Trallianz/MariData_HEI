@@ -6,7 +6,12 @@ const TimeCalc = (x: number) => {
     hours = Math.floor(x / 60);
     minutes = x % 60;
 
-  return (hours + "h " + minutes + "min")
+    if (x < 60) {
+      return (minutes + "min")
+    }
+    else {
+      return (hours + "h " + minutes + "min")
+    }
 }
 
 export default TimeCalc
