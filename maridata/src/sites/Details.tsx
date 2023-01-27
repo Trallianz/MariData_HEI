@@ -21,6 +21,14 @@ const Details = () => {
   const { state } = useLocation();
   const { props } = state;
 
+  //returns the difference between two numbers in percent
+  function getDifference(x: number, y: number) {
+    //example "+60%"
+    if (x < y) return ("+" + Math.round(((y / x) * 100) - 100) + "%");
+    //example "0%" or "-60%"
+    else return (Math.round(((y / x) * 100) - 100) + "%");
+  }
+
   return (
     <div className='h-full w-full bg-gray1 text-text0'>
       <Topbar name={"Eco-Rating Details"} />
@@ -46,7 +54,70 @@ const Details = () => {
             s_color={props.route_color} />
         </div>
         <div className='h-full flex flex-col justify-between items-end'>
-          <div className='bg-gray0 w-[500px] p-3 rounded-lg'>
+            <table className='border-separate border-spacing-4'>
+              <thead>
+                <tr className=''>
+                  <th />
+                  <th>
+                    <div className='font-bold text-xl'>Current</div>
+                    <RouteLine color={shipProp.currentRoute.route_color} />
+                  </th>
+                  <th>
+                    <div className='font-bold text-xl'>Suggestion</div>
+                    <RouteLine color={props.route_color} />
+                  </th>
+                  <th />
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <img src={Leaf} />
+                    Eco-Rating
+                  </td>
+                  <td>{shipProp.currentRoute.eco_rating.toFixed(1)}</td>
+                  <td>{props.eco_rating.toFixed(1)}</td>
+                  <td className='text-end'>{getDifference(shipProp.currentRoute.eco_rating, props.eco_rating)}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <img src={Fire} />
+                    Fuel Consumption
+                  </td>
+                  <td>{shipProp.currentRoute.fuel_consumption} gal</td>
+                  <td>{props.fuel_consumption} gal</td>
+                  <td className='text-end'>{getDifference(shipProp.currentRoute.fuel_consumption, props.fuel_consumption)}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <img src={CO2} />
+                    CO2 Factor
+                  </td>
+                  <td>{shipProp.currentRoute.co2_factor} g/ton</td>
+                  <td>{props.co2_factor} g/ton</td>
+                  <td className='text-end'>{getDifference(shipProp.currentRoute.co2_factor, props.co2_factor)}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <img src={Distance} />
+                    Distance
+                  </td>
+                  <td>{shipProp.currentRoute.distance} km</td>
+                  <td>{props.distance} km</td>
+                  <td className='text-end'>{getDifference(shipProp.currentRoute.distance, props.distance)}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <img src={Capacity} />
+                    Capacity
+                  </td>
+                  <td>{shipProp.currentRoute.capacity} tons</td>
+                  <td>{props.capacity} tons</td>
+                  <td className='text-end'>{getDifference(shipProp.currentRoute.capacity, props.capacity)}</td>
+                </tr>
+              </tbody>
+            </table>
+          {/* <div className='bg-gray0 w-[500px] p-3 rounded-lg'>
             <div className='flex'>
               <div className='p-2 pl-52'>
                 <div className='font-bold text-xl'>Current</div>
@@ -64,7 +135,7 @@ const Details = () => {
               <EcoRatingTableItem icon={Distance} attribute="Distance" cPoints={shipProp.currentRoute.distance} sPoints={props.distance} />
               <EcoRatingTableItem icon={Capacity} attribute="Capacity" cPoints={shipProp.currentRoute.capacity} sPoints={props.capacity} />
             </div>
-          </div>
+          </div> */}
           <div onClick={() => { alert('The Eco-Score is dark magic.') }}>
             <StandardButton label={"How is the Eco-Rating calculated?"} />
           </div>
