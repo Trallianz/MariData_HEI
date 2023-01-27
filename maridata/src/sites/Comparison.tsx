@@ -63,7 +63,7 @@ const Comparison = () => {
       <div className='h-[944px] flex flex-col justify-between p-5'>
         <div className=''>
           <table className=' table-auto w-full '>
-            <thead className=' font-bold text-4xl border-b dark:border-text0 text-justify'>
+            <thead className=' font-bold text-4xl h-16 border-b border-gray2 text-justify'>
               <tr>
                 <th></th>
                 <th>Current</th>
@@ -72,45 +72,44 @@ const Comparison = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className=' h-20 border-b dark:border-text0'>
-                <td className='flex flex-row'><img src={calender} alt='calender icon' /> <p className=' mx-8 text-2xl'>Date:</p> </td>
+              <tr className=' h-20 border-b border-gray2'>
+                <td className='flex '><img src={calender} alt='calender icon' /> <p className=' my-4 mx-8 text-2xl'>Date:</p> </td>
                 <td><div className='font-bold text-2xl'>{shipProp.currentRoute.date}</div></td>
                 <td><div className='font-bold text-2xl'>{props.date}</div></td>
                 <td></td>
-
               </tr>
-              <tr className=' h-20 border-b dark:border-text0'>
-                <td className='flex'><img src={leaf_logo} alt='eco leaf icon' /><p className='mx-7 text-2xl'>Eco-Rating:</p></td>
+              <tr className=' h-20 border-b border-gray2'>
+                <td className='flex'><img src={leaf_logo} alt='eco leaf icon' /><p className='my-4 mx-7 text-2xl'>Eco-Rating:</p></td>
                 <td><div className='font-bold text-2xl'>{shipProp.currentRoute.eco_rating.toFixed(1)}</div></td>
                 <td><div className='font-bold text-2xl'>{props.eco_rating.toFixed(1)}</div></td>
                 <td><ComparisonTable cPoints={shipProp.currentRoute.eco_rating} sPoints={props.eco_rating} /></td>
               </tr>
               <tr className=' h-20'>
-                <td className='flex'><img src={time_logo} alt="clock" /><p className='mx-7 text-2xl'>Time:</p></td>
+                <td className='flex'><img src={time_logo} alt="clock" /><p className='my-4 mx-7 text-2xl'>Time:</p></td>
                 <td><div className='font-bold text-2xl'>{TimeCalc(shipProp.currentRoute.time_driven + shipProp.currentRoute.time_anchor)}</div></td>
                 <td><div className='font-bold text-2xl'>{TimeCalc(props.time_driven + props.time_anchor)}</div></td>
                 <td><ComparisonTime cTime={shipProp.currentRoute.time_driven + shipProp.currentRoute.time_anchor} sTime={props.time_driven + props.time_anchor} /></td>
               </tr>
               <tr className=' h-20'>
-                <td className='flex mx-5'><img src={ship_d} alt="driving ship" /><p className=' mx-7 text-2xl'>Driven:</p></td>
+                <td className='flex mx-5'><img src={ship_d} alt="driving ship" /><p className='my-4  mx-7 text-2xl'>Driven:</p></td>
                 <td><div className='font-bold text-xl'>{TimeCalc(shipProp.currentRoute.time_driven)}</div></td>
                 <td><div className='font-bold text-xl'>{TimeCalc(props.time_driven)}</div></td>
                 <td><ComparisonTime cTime={shipProp.currentRoute.time_driven} sTime={props.time_driven} /></td>
               </tr>
-              <tr className=' h-20 border-b dark:border-text0'>
-                <td className='flex mx-5'><img src={anchor} alt="anchor icon" /><p className=' mx-7 text-2xl'>Anchored:</p></td>
+              <tr className=' h-20 border-b border-gray2'>
+                <td className='flex mx-5'><img src={anchor} alt="anchor icon" /><p className='my-4  mx-7 text-2xl'>Anchored:</p></td>
                 <td><div className='font-bold text-xl'>{TimeCalc(shipProp.currentRoute.time_anchor)}</div></td>
                 <td><div className='font-bold text-xl'>{TimeCalc(props.time_anchor)}</div></td>
                 <td><ComparisonTime cTime={shipProp.currentRoute.time_anchor} sTime={props.time_anchor} /></td>
               </tr>
-              <tr className=' h-20 border-b dark:border-text0'>
-                <td className='flex'><img src={speedometer} alt='' /><p className='mx-7 text-2xl'>Avg. Speed:</p></td>
+              <tr className=' h-20 border-b border-gray2'>
+                <td className='flex'><img src={speedometer} alt='' /><p className='my-4 mx-7 text-2xl'>Avg. Speed:</p></td>
                 <td><div className='font-bold text-2xl'>{shipProp.currentRoute.speed.toFixed(1) + " kn"}</div></td>
                 <td><div className='font-bold text-2xl'>{props.speed.toFixed(1) + " kn"}</div></td>
                 <td><ComparisonTable cPoints={shipProp.currentRoute.speed} sPoints={props.speed} /></td>
               </tr>
-              <tr className=' h-20 border-b dark:border-text0'>
-                <td className='flex'><img src={cargo_ship} alt='the ship icon of ship type comparison' /><p className='mx-7 text-2xl'>Ship Type:</p> </td>
+              <tr className=' h-20 '>
+                <td className='flex'><img src={cargo_ship} alt='the ship icon of ship type comparison' /><p className='my-4 mx-7 text-2xl'>Ship Type:</p> </td>
                 <td><div className='font-bold text-2xl'>{shipProp.currentRoute.ship_type}</div></td>
                 <td><div className='font-bold text-2xl'>{props.ship_type}</div></td>
               </tr>

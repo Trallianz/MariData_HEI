@@ -51,9 +51,9 @@ export const ComparisonTable = ({ cTime, sTime }: compareElements) => {
     return (
 
         <div className="flex">
-            <div >{getDifference(cTime, sTime)}</div>
-            <div className=" px-5"><img src={showTriangle(cTime, sTime)} alt="the triangel for compare" /></div>
-            <div > {getAbsolutDifference(cTime, sTime)}</div>
+            <div className="w-[60px]">{getDifference(cTime, sTime)}</div>
+            <div ><img src={showTriangle(cTime, sTime)} alt="the triangel for compare" /></div>
+            <div className="flex w-[100px] justify-end"> {getAbsolutDifference(cTime, sTime)}</div>
         </div>
     )
 }

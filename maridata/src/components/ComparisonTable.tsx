@@ -49,9 +49,9 @@ export const ComparisonTable = ({ cPoints, sPoints }: compareElements) => {
 
     return (
         <div className=" flex">
-            <div >{getDifference(cPoints, sPoints)}</div>
-            <div className=" px-4"><img src={showTriangle(cPoints, sPoints)} alt="the triangel for compare" /></div>
-            <div >{getSum(cPoints, sPoints)}</div>
+            <div className="w-[60px]">{getDifference(cPoints, sPoints)}</div>
+            <div ><img src={showTriangle(cPoints, sPoints)} alt="the triangel for compare" /></div>
+            <div className="flex w-[100px] justify-end">{getSum(cPoints, sPoints)}</div>
         </div >
     )
 }
