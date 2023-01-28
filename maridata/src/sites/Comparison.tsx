@@ -66,7 +66,7 @@ const Comparison = () => {
           <table className=' table-auto w-full '>
             <thead className=' font-bold text-4xl h-20 border-b border-gray2 text-justify'>
               <tr>
-                <th></th>
+                <th className='w-[400px]'></th>
                 <th>
                   <div>
                     <div>Current</div>
