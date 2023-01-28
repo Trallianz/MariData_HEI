@@ -112,7 +112,7 @@ const Radar = ({ c_eco, c_fuel, c_co2, c_distance, c_capacity, c_color, s_eco, s
     scaleProps: () => ({ className: 'fill-gray2 stroke-gray1', fill: 'none' }),
     captionMargin: 60,
     captionProps: () => ({
-      className: 'fill-text0',
+      className: 'fill-text0 font-semibold',
       textAnchor: 'middle',
       fontSize: 20,
       fontFamily: 'sans-serif'
