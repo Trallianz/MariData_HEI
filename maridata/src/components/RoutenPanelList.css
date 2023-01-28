@@ -1,6 +1,6 @@
 .route_panel_list_routes{
     width: 500px;
-    height: 850px;
+    height: 880px;
     background-color: var(--color-gray-0);
     margin: 1em 1em;
     padding-top: 1em;
@@ -13,15 +13,8 @@
     padding-left: 2px;
 }
 
-.route_panel_dropdown{
-    background-color: blue;
-    
-}
-
-
-
-.route_panel_dropdown:focus{
-    background-color: red;
+.route_panel_{
+    margin-bottom: 5px;
 }
 
 .route_panel_dropdown > button:focus{
@@ -34,7 +27,14 @@
 
 
 .current_route_div{
-    
+    padding-bottom: 1.45em;
+}
+
+.route_panel_{
+    padding-left: 1em;
+    padding-bottom: 1em;
+    display: flex;
+    flex-direction: row;
 }
 
 .alternative_routes{
@@ -56,13 +56,6 @@
 .alternative_routes::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: var(--color-gray-0);
-}
-
-.route_panel_{
-    padding-left: 1em;
-    padding-bottom: 1em;
-    display: flex;
-    flex-direction: row;
 }
 
 .route_panel_divider{

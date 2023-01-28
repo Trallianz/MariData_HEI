@@ -4,7 +4,9 @@
     display: flex;
     flex-direction: column;
     background-color: var(--color-gray-1);
-    margin: 2em 1em;
+    margin-bottom: 1.5em;
+    margin-left: 1em;
+    margin-right: 1em;
     padding: 1em;
     border-radius: 10px;
 }
@@ -157,4 +159,8 @@
 
 .time_comparison > img{
     padding-right: 2px;
+}
+
+.routen_panel_arrow{
+    padding-bottom: 4em;
 }

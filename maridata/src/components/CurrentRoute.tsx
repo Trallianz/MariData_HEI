@@ -37,7 +37,7 @@ const CurrentRoute = () => {
     return (
         <div className='current_route'>
             <div className='current_route_name_and_line'>
-                <div>current Route</div>
+                <p>current Route</p>
                 <div className='pt-2 pb-8 w-48'>
                     <RouteLine color={shipProp.currentRoute.route_color} />
                 </div>
