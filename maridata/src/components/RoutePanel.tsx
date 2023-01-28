@@ -13,8 +13,10 @@ import { useNavigate } from "react-router-dom";
 import TimeCalc from './TimeCalc';
 import { ShipContext } from '../ShipContext';
 import red_triangle from "./../icons/arrow_down_red.svg";
+import red_triangle_rotated from "./../icons/arrow_red_up.svg";
 import gray_triangel from "./../icons/arrow_grey.svg";
 import green_triangle from "./../icons/arrow_up_green.svg";
+import green_triangle_rotated from "./../icons/arrow_green_down.svg";
 
 interface route_props2 {
     isOpen: Array<boolean>;
@@ -78,11 +80,11 @@ const RoutePanel = (props: any) => {
     function showTriangleTime(c: number, s: number) {
         const sum = c - s
         if (sum < 0) {
-            triangle = red_triangle
+            triangle = red_triangle_rotated
             return (triangle)
         }
         else {
-            triangle = green_triangle
+            triangle = green_triangle_rotated
             return (triangle)
         }
     }
@@ -179,8 +181,8 @@ const RoutePanel = (props: any) => {
                             <div className='routen_panel_eco_rating_value'>
                                 <p className='time'>{TimeCalc(props.time_driven + props.time_anchor)}</p>
                                 <div className='time_comparison'>
-                                    <img src={showTriangleEco((shipProp.currentRoute.time_driven + shipProp.currentRoute.time_anchor), (props.time_driven + props.time_anchor))} alt="" />
-                                    {getDifferenceEco((shipProp.currentRoute.time_driven + shipProp.currentRoute.time_anchor), (props.time_driven + props.time_anchor))}
+                                    <img src={showTriangleTime((shipProp.currentRoute.time_driven + shipProp.currentRoute.time_anchor), (props.time_driven + props.time_anchor))} alt="" />
+                                    {getDifferenceTime((shipProp.currentRoute.time_driven + shipProp.currentRoute.time_anchor), (props.time_driven + props.time_anchor))}
                                 </div>
                             </div>
                         </div>

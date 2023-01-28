@@ -1,7 +1,7 @@
 import TimeCalc from "./TimeCalc";
-import red_triangle from "./../icons/arrow_down_red.svg";
+import red_triangle from "./../icons/arrow_red_up.svg";
 import gray_triangel from "./../icons/arrow_grey.svg";
-import green_triangle from "./../icons/arrow_up_green.svg";
+import green_triangle from "./../icons/arrow_green_down.svg";
 
 interface compareElements {
 
