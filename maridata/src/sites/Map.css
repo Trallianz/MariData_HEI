@@ -46,7 +46,7 @@
 
 .map_panel{
     position: relative;
-    top: -3720px;
+    top: -10px;
 }
 
 #location_top{
@@ -63,4 +63,8 @@
 
 .map_panel{
     margin-top: -2em;
+}
+
+.map_map{
+    max-height: 100px;
 }
