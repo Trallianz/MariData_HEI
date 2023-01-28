@@ -58,12 +58,14 @@ const Details = () => {
               <tr className='border-b-4 border-gray1'>
                 <th />
                 <th className='p-4'>
-                  <div className='pb-1'>Current</div>
-                  <RouteLine color={shipProp.currentRoute.route_color} />
+                  <div className='pb-1 text-start w-min'>Current
+                    <RouteLine color={shipProp.currentRoute.route_color} />
+                  </div>
                 </th>
                 <th className='p-4'>
-                  <div className='pb-1'>Suggestion</div>
-                  <RouteLine color={props.route_color} />
+                  <div className='pb-1 text-start w-min'>Suggestion
+                    <RouteLine color={props.route_color} />
+                  </div>
                 </th>
                 <th />
               </tr>
