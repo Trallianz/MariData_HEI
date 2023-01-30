@@ -1,4 +1,3 @@
-
 import { useLocation, useNavigate } from 'react-router-dom';
 import Topbar from '../components/Topbar'
 import './Comparison.css';

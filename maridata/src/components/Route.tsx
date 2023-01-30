@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types'
-
 export interface routen_props{
     routeIndex: number;
     date: string;

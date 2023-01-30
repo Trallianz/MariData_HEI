@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import "./Map.css";
 import RoutenPanelList from "../components/RoutenPanelList";
 import land_botten from "./../icons/land_top.svg";

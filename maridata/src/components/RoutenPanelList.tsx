@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import RoutenPanel from "./RoutePanel";
 import CurrentRoute from './CurrentRoute';
 import Dropdown from './Dropdown';
@@ -26,7 +26,11 @@ const RoutenPanelList = (props: route_props2) => {
         <div className='route_panel_list_routes'>
             <div className='route_panel_'>
                 <p>Historical Routes</p>
-                <button className={isMenuVisible ? 'bg-gray1 w-[130px] rounded-md absolute left-[352px] font-bold text-lg' : 'bg-gray2 w-[130px] rounded-md absolute left-[352px] font-bold text-lg'} onClick={() => setIsMenuVisible(!isMenuVisible)}>
+                <button className={
+                    isMenuVisible ?
+                        'bg-gray1 w-[130px] rounded-md absolute left-[352px] top-[13px] font-bold text-lg'
+                        : 'bg-gray2 w-[130px] rounded-md absolute left-[352px] font-bold text-lg'
+                } onClick={() => setIsMenuVisible(!isMenuVisible)}>
                     <div className='py-1'>{dropdownSelect}</div>
                     {isMenuVisible && <Dropdown setDropdownSelect={setDropdownSelect} setIsMenuVisible={setIsMenuVisible} />}
                 </button>
@@ -40,8 +44,6 @@ const RoutenPanelList = (props: route_props2) => {
 
                 { //for each route in the route map a div containing the route will be created
                     //"key={index}" bitte nicht löschen, wird gebraucht, sonst gibt react in der Console einen Error
-
-
                     shipProp.orderedRoutes.map((route: any, index: number) => {
                         return <RoutenPanel
                             key={index}
