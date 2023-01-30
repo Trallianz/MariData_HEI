@@ -14,7 +14,6 @@ import TimeCalc from './TimeCalc';
 import { ShipContext } from '../ShipContext';
 import red_triangle from "./../icons/arrow_down_red.svg";
 import red_triangle_rotated from "./../icons/arrow_red_up.svg";
-import gray_triangel from "./../icons/arrow_grey.svg";
 import green_triangle from "./../icons/arrow_up_green.svg";
 import green_triangle_rotated from "./../icons/arrow_green_down.svg";
 
@@ -46,54 +45,25 @@ const RoutePanel = (props: any) => {
     }
 
 
-    //calculate diferences
-
-    let triangle = gray_triangel;
-
+    //calculate differences
     function showTriangleEco(c: number, s: number) {
         const sum = c - s
-        if (sum > 0) {
-            triangle = red_triangle
-            return (triangle)
-        }
-        else {
-            triangle = green_triangle
-            return (triangle)
-        }
-    }
-
-    function getDifferenceEco(x: number, y: number) {
-        //example "-60%"
-        if (x >= y) {
-            return (Math.round(((y / x) * 100) - 100) + "%");
-        }
-        //example "+60%"
-        else {
-            return ("+" + Math.round(((y / x) * 100) - 100) + "%");
-        }
+        if (sum > 0) return (red_triangle)
+        else return (green_triangle)
     }
 
     function showTriangleTime(c: number, s: number) {
         const sum = c - s
-        if (sum < 0) {
-            triangle = red_triangle_rotated
-            return (triangle)
-        }
-        else {
-            triangle = green_triangle_rotated
-            return (triangle)
-        }
+        if (sum < 0) return (red_triangle_rotated)
+        else return (green_triangle_rotated)
     }
 
-    function getDifferenceTime(x: number, y: number) {
+    //returns difference in percent
+    function getDifference(x: number, y: number) {
         //example "-60%"
-        if (x >= y) {
-            return (Math.round(((y / x) * 100) - 100) + "%");
-        }
+        if (x >= y) return (Math.round(((y / x) * 100) - 100) + "%");
         //example "+60%"
-        else {
-            return ("+" + Math.round(((y / x) * 100) - 100) + "%");
-        }
+        else return ("+" + Math.round(((y / x) * 100) - 100) + "%");
     }
 
     //passes the route data (props) to the detailed comparison site
@@ -163,7 +133,7 @@ const RoutePanel = (props: any) => {
                                 <p className='eco_rating'>{props.eco_rating.toFixed(1)}</p>
                                 <div className='eco_rating_comparison'>
                                     <img src={showTriangleEco(shipProp.currentRoute.eco_rating, props.eco_rating)} alt="" />
-                                    {getDifferenceEco(shipProp.currentRoute.eco_rating, props.eco_rating)}
+                                    {getDifference(shipProp.currentRoute.eco_rating, props.eco_rating)}
                                 </div>
                             </div>
                         </div>
@@ -178,7 +148,7 @@ const RoutePanel = (props: any) => {
                                 <p className='time'>{TimeCalc(props.time_driven + props.time_anchor)}</p>
                                 <div className='time_comparison'>
                                     <img src={showTriangleTime((shipProp.currentRoute.time_driven + shipProp.currentRoute.time_anchor), (props.time_driven + props.time_anchor))} alt="" />
-                                    {getDifferenceTime((shipProp.currentRoute.time_driven + shipProp.currentRoute.time_anchor), (props.time_driven + props.time_anchor))}
+                                    {getDifference((shipProp.currentRoute.time_driven + shipProp.currentRoute.time_anchor), (props.time_driven + props.time_anchor))}
                                 </div>
                             </div>
                         </div>
