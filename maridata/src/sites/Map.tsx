@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import "./Map.css";
 import RoutenPanelList from "../components/RoutenPanelList";
 import land_botten from "./../icons/land_top.svg";
@@ -8,15 +8,11 @@ import line_map_green from "./../icons/line_map_green.svg";
 import line_map_purple from "./../icons/line_map_purple.svg";
 import line_map_blue from "./../icons/line_map_blue.svg";
 import location from "./../icons/location.svg";
-import { ShipContext } from '../ShipContext';
-
 
 
 const Map = () => {
-  const shipProp = useContext(ShipContext);
 
   const[isOpen, setIsOpen] = useState([true, true, true, true]);
-
 
   return (
     <div className='map'>

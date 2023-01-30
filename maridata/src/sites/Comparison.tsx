@@ -31,17 +31,17 @@ const Comparison = () => {
 
     shipProp.setCurrentRoute(shipProp.orderedRoutes[props.routeIndex]);
 
-    if (props.routeIndex == 0) {
+    if (props.routeIndex === 0) {
       let tempArr = [...shipProp.orderedRoutes];
       tempArr[0] = temp
       shipProp.setOrderedRoutes(tempArr);
 
-    } else if (props.routeIndex == 1) {
+    } else if (props.routeIndex === 1) {
       let tempArr = [...shipProp.orderedRoutes];
       tempArr[1] = temp;
       shipProp.setOrderedRoutes(tempArr);
 
-    } else if (props.routeIndex == 2) {
+    } else if (props.routeIndex === 2) {
       let tempArr = [...shipProp.orderedRoutes];
       tempArr[2] = temp;
       shipProp.setOrderedRoutes(tempArr);

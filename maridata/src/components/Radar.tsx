@@ -36,10 +36,10 @@ const Radar = ({ c_eco, c_fuel, c_co2, c_distance, c_capacity, c_color, s_eco, s
   }
 
   function colorAsCode(color: string) {
-    if (color == "black") return ("#000")
-    else if (color == "green") return ("#33BE41")
-    else if (color == "blue") return ("#16A88D")
-    else if (color == "purple") return ("#8051A5")
+    if (color === "black") return ("#000")
+    else if (color === "green") return ("#33BE41")
+    else if (color === "blue") return ("#16A88D")
+    else if (color === "purple") return ("#8051A5")
     else return ("Error in Radar.tsx (unknown color)")
   }
 
@@ -47,7 +47,7 @@ const Radar = ({ c_eco, c_fuel, c_co2, c_distance, c_capacity, c_color, s_eco, s
   function getBiggestElement(x: string) {
     let highest: number = 0;
 
-    if (x == "fuelConsumption") {
+    if (x === "fuelConsumption") {
       highest = shipProp.currentRoute.fuel_consumption;
       for (let i = 0; i < shipProp.orderedRoutes.length; i++) {
         if (shipProp.orderedRoutes[i].fuel_consumption > highest) {
@@ -55,7 +55,7 @@ const Radar = ({ c_eco, c_fuel, c_co2, c_distance, c_capacity, c_color, s_eco, s
         }
       }
     }
-    else if (x == "co2Factor") {
+    else if (x === "co2Factor") {
       highest = shipProp.currentRoute.co2_factor;
       for (let i = 0; i < shipProp.orderedRoutes.length; i++) {
         if (shipProp.orderedRoutes[i].co2_factor > highest) {
@@ -63,7 +63,7 @@ const Radar = ({ c_eco, c_fuel, c_co2, c_distance, c_capacity, c_color, s_eco, s
         }
       }
     }
-    else if (x == "distance") {
+    else if (x === "distance") {
       highest = shipProp.currentRoute.distance;
       for (let i = 0; i < shipProp.orderedRoutes.length; i++) {
         if (shipProp.orderedRoutes[i].distance > highest) {
@@ -71,7 +71,7 @@ const Radar = ({ c_eco, c_fuel, c_co2, c_distance, c_capacity, c_color, s_eco, s
         }
       }
     }
-    else if (x == "capacity") {
+    else if (x === "capacity") {
       highest = shipProp.currentRoute.capacity;
       for (let i = 0; i < shipProp.orderedRoutes.length; i++) {
         if (shipProp.orderedRoutes[i].capacity > highest) {

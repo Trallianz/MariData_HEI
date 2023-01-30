@@ -71,7 +71,7 @@ const Details = () => {
               <tbody>
                 <tr className='border-b-2 border-gray1'>
                   <td className='p-4'>
-                    <img src={Leaf} />
+                    <img src={Leaf} alt="" />
                     Eco-Rating
                   </td>
                   <td className='p-4 text-4xl'>{shipProp.currentRoute.eco_rating.toFixed(1)}</td>
@@ -80,7 +80,7 @@ const Details = () => {
                 </tr>
                 <tr className='border-b-2 border-gray1'>
                   <td className='p-4'>
-                    <img src={Fire} />
+                    <img src={Fire} alt="" />
                     Fuel Consumption
                   </td>
                   <td className='p-4'>
@@ -99,7 +99,7 @@ const Details = () => {
                 </tr>
                 <tr className='border-b-2 border-gray1'>
                   <td className='p-4'>
-                    <img src={CO2} />
+                    <img src={CO2} alt="" />
                     CO2 Factor
                   </td>
                   <td className='p-4'>
@@ -118,7 +118,7 @@ const Details = () => {
                 </tr>
                 <tr className='border-b-2 border-gray1'>
                   <td className='p-4'>
-                    <img src={Distance} />
+                    <img src={Distance} alt="" />
                     Distance
                   </td>
                   <td className='p-4'>
@@ -137,7 +137,7 @@ const Details = () => {
                 </tr>
                 <tr>
                   <td className='p-4'>
-                    <img src={Capacity} />
+                    <img src={Capacity} alt="" />
                     Capacity
                   </td>
                   <td className='p-4'>

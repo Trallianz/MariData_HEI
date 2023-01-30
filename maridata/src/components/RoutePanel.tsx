@@ -18,10 +18,6 @@ import gray_triangel from "./../icons/arrow_grey.svg";
 import green_triangle from "./../icons/arrow_up_green.svg";
 import green_triangle_rotated from "./../icons/arrow_green_down.svg";
 
-interface route_props2 {
-    isOpen: Array<boolean>;
-    setIsOpen: any;
-}
 
 const RoutePanel = (props: any) => {
 
