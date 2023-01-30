@@ -21,7 +21,7 @@ const CurrentRoute = () => {
             <div className='current_route_eco_and_time'>
                 <div className='current_route_eco'>
                     <img src={ecoscore_logo} alt="eco score logo" />
-                    <p>{shipProp.currentRoute.eco_rating}</p>
+                    <p>{shipProp.currentRoute.eco_rating.toFixed(1)}</p>
                 </div>
                 <div className='current_route_divider'>
                 </div>

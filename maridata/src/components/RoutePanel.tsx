@@ -160,7 +160,7 @@ const RoutePanel = (props: any) => {
                         <div className='routen_panel_eco_rating'>
                             <p>Eco Rating:</p>
                             <div className='routen_panel_eco_rating_value'>
-                                <p className='eco_rating'>{props.eco_rating}</p>
+                                <p className='eco_rating'>{props.eco_rating.toFixed(1)}</p>
                                 <div className='eco_rating_comparison'>
                                     <img src={showTriangleEco(shipProp.currentRoute.eco_rating, props.eco_rating)} alt="" />
                                     {getDifferenceEco(shipProp.currentRoute.eco_rating, props.eco_rating)}
