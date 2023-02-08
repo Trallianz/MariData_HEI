@@ -10,7 +10,7 @@ function App() {
   return (
     <div className='h-[1024px] w-[1366px] bg-gray1'>
       <ShipProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Routes>
             <Route path='/' element={<Map />} />
             <Route path='/comparison' element={<Comparison />} />
