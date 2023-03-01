@@ -8,7 +8,7 @@ import { ShipProvider } from "./ShipContext";
 function App() {
 
   return (
-    <div className='h-[1024px] w-[1366px] bg-gray1'>
+    <div className='h-[1000px] w-[1366px] bg-gray1'>
       <ShipProvider>
         <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Routes>

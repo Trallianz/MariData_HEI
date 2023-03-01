@@ -60,7 +60,7 @@ const Comparison = () => {
   return (
     <div className='h-full w-full bg-gray1'>
       <Topbar name={"Comparison"} />
-      <div className='h-[944px] flex flex-col justify-between p-5'>
+      <div className='h-[920px] flex flex-col justify-between p-5'>
         <div className=''>
           <table className=' table-auto w-full '>
             <thead className=' font-bold text-4xl h-20 border-b border-gray2 text-justify'>
