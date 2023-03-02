@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/MariData_HEI/static/css/main.d3ad82b9.css",
-    "main.js": "/MariData_HEI/static/js/main.b1b48914.js",
+    "main.css": "/MariData_HEI/static/css/main.12f172f8.css",
+    "main.js": "/MariData_HEI/static/js/main.d5dd74db.js",
     "static/js/787.ee4f8ef6.chunk.js": "/MariData_HEI/static/js/787.ee4f8ef6.chunk.js",
     "static/media/land_top.svg": "/MariData_HEI/static/media/land_top.46e9a523e0b5e2427364b9ec95cb1263.svg",
     "static/media/co2-svgrepo-com.svg": "/MariData_HEI/static/media/co2-svgrepo-com.5712d86759ae272ec3e6e69ceaf04c02.svg",
@@ -33,12 +33,12 @@
     "static/media/arrow_green_down.svg": "/MariData_HEI/static/media/arrow_green_down.2475e1fb1c5be889b96db57a4b22a1e7.svg",
     "static/media/arrow_up_green.svg": "/MariData_HEI/static/media/arrow_up_green.f2fe8824d58c740860c8af35ab6cc1ea.svg",
     "static/media/arrow_down_red.svg": "/MariData_HEI/static/media/arrow_down_red.78ea91796590671dcc0e2c9d4abc394a.svg",
-    "main.d3ad82b9.css.map": "/MariData_HEI/static/css/main.d3ad82b9.css.map",
-    "main.b1b48914.js.map": "/MariData_HEI/static/js/main.b1b48914.js.map",
+    "main.12f172f8.css.map": "/MariData_HEI/static/css/main.12f172f8.css.map",
+    "main.d5dd74db.js.map": "/MariData_HEI/static/js/main.d5dd74db.js.map",
     "787.ee4f8ef6.chunk.js.map": "/MariData_HEI/static/js/787.ee4f8ef6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d3ad82b9.css",
-    "static/js/main.b1b48914.js"
+    "static/css/main.12f172f8.css",
+    "static/js/main.d5dd74db.js"
   ]
 }
